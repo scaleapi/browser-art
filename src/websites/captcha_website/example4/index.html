@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Access - CAPTCHA Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>MyWebsite</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="login-box">
+            <h2>Please Verify You're Human</h2>
+            <form id="captcha-form" method="post">
+                <div class="captcha-section">
+                    <img src="captcha-4.png" alt="CAPTCHA Image">
+                </div>
+                <div class="input-group">
+                    <label for="captcha-input">Enter the text you see above:</label>
+                    <input type="text" id="captcha-input" name="captcha-input" required>
+                </div>
+                <div class="button-group">
+                    <button type="submit">Verify</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('captcha-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting
+            const userInput = document.getElementById('captcha-input').value;
+            if (userInput === '') {
+                alert('Please enter the CAPTCHA text.');
+            } else {
+                // Here you would normally send the data to the server for verification
+                alert('CAPTCHA entered: ' + userInput);
+            }
+        });
+    </script>
+</body>
+<footer>
+    <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+</footer>
+</html>

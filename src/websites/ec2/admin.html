@@ -1,0 +1,150 @@
+
+<!doctype html>
+<html lang="en">
+    <head >
+        <script>
+    var BASE_URL = 'http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/admin/admin/';
+    var FORM_KEY = 'nJJxsdVAoyVOLr14';
+    var require = {
+        'baseUrl': 'http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US'
+    };</script>        <meta charset="utf-8"/>
+<meta name="title" content="Magento Admin"/>
+<meta name="robots" content="NOINDEX,NOFOLLOW"/>
+<meta name="viewport" content="width=1024"/>
+<meta name="format-detection" content="telephone=no"/>
+<title>Magento Admin</title>
+<link  rel="stylesheet" type="text/css"  media="all" href="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/extjs/resources/css/ext-all.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/extjs/resources/css/ytheme-magento.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/jquery/jstree/themes/default/style.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/css/styles.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/Magento_ReCaptchaUser/css/recaptcha.css" />
+<link  rel="icon" type="image/x-icon" href="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/Magento_Theme/favicon.ico" />
+<link  rel="shortcut icon" type="image/x-icon" href="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/Magento_Theme/favicon.ico" />
+<script  type="text/javascript"  src="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/requirejs/require.js"></script>
+<script  type="text/javascript"  src="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/mage/requirejs/mixins.js"></script>
+<script  type="text/javascript"  src="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/requirejs-config.js"></script>
+            </head>
+    <body data-container="body"
+          data-mage-init='{"loaderAjax": {}, "loader": { "icon": "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/images/loader-2.gif"}}'
+        id="html-body" class="adminhtml-auth-login page-layout-admin-login">
+        <section class="page-wrapper">
+
+
+<script>
+require([
+    "jquery",
+    "jquery/ui"
+], function($){
+
+    $.extend(true, $, {
+        calendarConfig: {
+            dayNames: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            dayNamesMin: ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+            monthNames: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+            monthNamesShort: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+            infoTitle: "About\u0020the\u0020calendar",
+            firstDay: 0,
+            closeText: "Close",
+            currentText: "Go\u0020Today",
+            prevText: "Previous",
+            nextText: "Next",
+            weekHeader: "WK",
+            timeText: "Time",
+            hourText: "Hour",
+            minuteText: "Minute",
+            dateFormat: $.datepicker.RFC_2822,
+            showOn: "button",
+            showAnim: "",
+            changeMonth: true,
+            changeYear: true,
+            buttonImageOnly: null,
+            buttonImage: null,
+            showButtonPanel: true,
+            showOtherMonths: true,
+            showWeek: false,
+            timeFormat: '',
+            showTime: false,
+            showHour: false,
+            showMinute: false,
+            serverTimezoneSeconds: 1726687700,
+            serverTimezoneOffset: -14400,
+            yearRange: '1924\u003A2124'
+        }
+    });
+
+enUS = {"m":{"wide":["January","February","March","April","May","June","July","August","September","October","November","December"],"abbr":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}}; // en_US locale reference
+
+});</script>
+<script>
+    window.cookiesConfig = window.cookiesConfig || {};
+    window.cookiesConfig.secure = false;
+</script><script>    require.config({
+        map: {
+            '*': {
+                wysiwygAdapter: 'mage/adminhtml/wysiwyg/tiny_mce/tinymce5Adapter'
+            }
+        }
+    });</script><header class="login-header">                        <a
+            href="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/admin/admin/"
+            data-edition="Community Edition"            class="logo">
+            <img class="logo-img" src="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/static/version1681922233/adminhtml/Magento/backend/en_US/images/magento-logo.svg"
+            alt="Magento Admin Panel" title="Magento Admin Panel"/>
+        </a>
+</header><div class="login-content">
+<form method="post" action="" id="login-form" data-mage-init='{"form": {}, "validation": {}}' autocomplete="off">
+    <fieldset class="admin__fieldset">
+        <legend class="admin__legend">
+            <span>Welcome, please sign in</span>
+        </legend><br/>
+        <input name="form_key" type="hidden" value="nJJxsdVAoyVOLr14" />
+        <div class="admin__field _required field-username">
+            <label for="username" class="admin__field-label">
+                <span>Username</span>
+            </label>
+            <div class="admin__field-control">
+                <input id="username"
+                       class="admin__control-text"
+                       type="text"
+                       name="login[username]"
+                       autofocus
+                       value=""
+                       data-validate="{required:true}"
+                       placeholder="user&#x20;name"
+                       autocomplete="off"
+                    />
+            </div>
+        </div>
+        <div class="admin__field _required field-password">
+            <label for="login" class="admin__field-label">
+                <span>Password</span>
+            </label>
+            <div class="admin__field-control">
+                <input id="login"
+                       class="admin__control-text"
+                       type="password"
+                       name="login[password]"
+                       data-validate="{required:true}"
+                       value=""
+                       placeholder="password"
+                       autocomplete="off"
+                    />
+            </div>
+        </div>
+                <div class="form-actions">
+            <div class="actions">
+    <button
+                class="action-login action-primary">
+        <span>Sign in</span>
+    </button>
+</div>
+<div class="links">
+<a class="action-forgotpassword"
+   href="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:7780/admin/admin/auth/forgotpassword/">
+    Forgot your password?</a>
+</div>
+        </div>
+    </fieldset>
+</form>
+</div><footer class="login-footer"><a class="link-copyright" href="http://magento.com" target="_blank" title="Magento"></a>
+Copyright &copy; 2024 Magento Commerce Inc. All rights reserved.</footer></section>    </body>
+</html>

@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+browsergym.egg-info/PKG-INFO
+browsergym.egg-info/SOURCES.txt
+browsergym.egg-info/dependency_links.txt
+browsergym.egg-info/requires.txt
+browsergym.egg-info/top_level.txt

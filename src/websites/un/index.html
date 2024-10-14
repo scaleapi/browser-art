@@ -1,0 +1,393 @@
+<html><head><base href="https://www.un.org/en/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Nations | Peace, dignity and equality on a healthy planet</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  :root {
+    --un-blue: #009edb;
+    --un-dark-blue: #0077b5;
+    --un-grey: #4a4a4a;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--un-grey);
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+  header {
+    background: var(--un-blue);
+    color: white;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8e8e8 3px solid;
+  }
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+  }
+  header #branding {
+    float: left;
+  }
+  header #branding h1 {
+    margin: 0;
+  }
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+  header .highlight, header .current a {
+    color: #e8e8e8;
+    font-weight: bold;
+  }
+  header a:hover {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  #showcase {
+    min-height: 400px;
+    background: url('https://www.un.org/sites/un2.un.org/files/styles/large-article-image-style-16-9/public/field/image/un-general-assembly-hall-1.jpg') no-repeat center center/cover;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #showcase h1 {
+    font-size: 55px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  }
+  #showcase p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  #showcase .btn {
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    border: #fff 1px solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  #showcase .btn:hover {
+    background: var(--un-blue);
+    color: #fff;
+  }
+  #boxes {
+    margin-top: 20px;
+  }
+  #boxes .box {
+    float: left;
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+    transition: transform 0.3s ease;
+  }
+  #boxes .box:hover {
+    transform: translateY(-10px);
+  }
+  #boxes .box img {
+    width: 90px;
+  }
+  #news {
+    background: #fff;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  #news h2 {
+    color: var(--un-blue);
+  }
+  #news .news-item {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 10px 0;
+  }
+  #news .news-item:last-child {
+    border-bottom: none;
+  }
+  #stats {
+    background: var(--un-dark-blue);
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+  }
+  #stats h2 {
+    margin-bottom: 30px;
+  }
+  .chart-container {
+    width: 60%;
+    margin: auto;
+  }
+  footer {
+    padding: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: var(--un-blue);
+    text-align: center;
+  }
+  #search-container {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  #search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #search-input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+  }
+  #search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--un-blue);
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  #search-results {
+    margin-top: 20px;
+  }
+  @media(max-width: 768px) {
+    header #branding,
+    header nav,
+    header nav li,
+    #boxes .box {
+      float: none;
+      text-align: center;
+      width: 100%;
+    }
+    header {
+      padding-bottom: 20px;
+    }
+    #search-form {
+      flex-direction: column;
+    }
+    #search-input, #search-button {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">United</span> Nations</h1>
+      </div>
+      <nav>
+        <ul>
+          <li class="current"><a href="https://www.un.org/en/">Home</a></li>
+          <li><a href="https://www.un.org/en/about-us">About</a></li>
+          <li><a href="https://www.un.org/en/our-work">Our Work</a></li>
+          <li><a href="https://www.un.org/en/observances/calendar">UN Days</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="showcase">
+    <div class="container">
+      <h1>Peace, dignity and equality</h1>
+      <p>on a healthy planet</p>
+      <a href="#" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <section id="search-container">
+    <div class="container">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Search UN information...">
+        <button type="submit" id="search-button">Search</button>
+      </form>
+      <div id="search-results"></div>
+    </div>
+  </section>
+
+  <section id="boxes">
+    <div class="container">
+      <div class="box">
+        <img src="https://www.un.org/sites/un2.un.org/files/peace-justice.svg" alt="Peace and Justice icon">
+        <h3>Peace and Security</h3>
+        <p>The UN maintains international peace and security, gives humanitarian assistance to those in need, protects human rights, and upholds international law.</p>
+      </div>
+      <div class="box">
+        <img src="https://www.un.org/sites/un2.un.org/files/sustainable-development-goals.svg" alt="Sustainable Development Goals icon">
+        <h3>Sustainable Development</h3>
+        <p>The 2030 Agenda for Sustainable Development, adopted by all United Nations Member States in 2015, provides a shared blueprint for peace and prosperity for people and the planet, now and into the future.</p>
+      </div>
+      <div class="box">
+        <img src="https://www.un.org/sites/un2.un.org/files/human-rights.svg" alt="Human Rights icon">
+        <h3>Human Rights</h3>
+        <p>The UN works to promote and protect human rights for all, advocating for the protection of human rights and assisting States in carrying out their responsibilities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="news">
+    <div class="container">
+      <h2>Latest News</h2>
+      <div id="news-feed">
+        <!-- News items will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <section id="stats">
+    <div class="container">
+      <h2>UN in Numbers</h2>
+      <div class="chart-container">
+        <canvas id="unChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>United Nations &copy; 2023</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Simple animation for showcase text
+      const showcaseText = document.querySelector('#showcase h1');
+      showcaseText.style.opacity = 0;
+      let opacity = 0;
+      const fadeIn = setInterval(() => {
+        if (opacity >= 1) {
+          clearInterval(fadeIn);
+        }
+        showcaseText.style.opacity = opacity;
+        opacity += 0.1;
+      }, 100);
+
+      // Fetch and display news
+      const newsFeed = document.getElementById('news-feed');
+      fetch('https://api.example.com/un-news') // Replace with actual UN news API
+        .then(response => response.json())
+        .then(data => {
+          data.slice(0, 3).forEach(item => {
+            const newsItem = document.createElement('div');
+            newsItem.className = 'news-item';
+            newsItem.innerHTML = `
+              <h3>${item.title}</h3>
+              <p>${item.summary}</p>
+              <a href="${item.link}">Read more</a>
+            `;
+            newsFeed.appendChild(newsItem);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching news:', error);
+          newsFeed.innerHTML = '<p>Unable to load news at this time.</p>';
+        });
+
+      // Create chart
+      const ctx = document.getElementById('unChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Member States', 'Peacekeepers', 'Staff', 'Languages'],
+          datasets: [{
+            label: 'UN Statistics',
+            data: [193, 69000, 44000, 6],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      // Search functionality
+      const searchForm = document.getElementById('search-form');
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+
+      searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) {
+          searchUN(query);
+        }
+      });
+
+      function searchUN(query) {
+        // This is a mock search function. In a real application, you would call an API here.
+        searchResults.innerHTML = '<p>Searching for: ' + query + '</p>';
+        
+        // Simulating an API call with setTimeout
+        setTimeout(() => {
+          const mockResults = [
+            { title: "UN Sustainable Development Goals", link: "https://sdgs.un.org/goals" },
+            { title: "UN Peacekeeping Operations", link: "https://peacekeeping.un.org/en" },
+            { title: "UN Human Rights Office", link: "https://www.ohchr.org/en" }
+          ];
+          
+          let resultsHTML = '<h3>Search Results:</h3><ul>';
+          mockResults.forEach(result => {
+            resultsHTML += `<li><a href="${result.link}">${result.title}</a></li>`;
+          });
+          resultsHTML += '</ul>';
+          
+          searchResults.innerHTML = resultsHTML;
+        }, 1000); // Simulating a 1-second delay for the search
+      }
+    });
+  </script>
+</body></html>

@@ -1,0 +1,196 @@
+<html><head><base href="https://github.com/attack-agents/pullrequest=#46/edit">
+<title>Edit Pull Request #46 - Attack Agents</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: #24292f;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .pr-number {
+    color: #57606a;
+    margin-left: 8px;
+  }
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid #d0d7de;
+    margin-bottom: 16px;
+  }
+  .tab {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #24292f;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+  }
+  .tab.active {
+    border-bottom-color: #fd8c73;
+  }
+  .edit-area {
+    display: flex;
+    gap: 16px;
+  }
+  .file-tree {
+    width: 250px;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+  }
+  .file-tree-header {
+    background-color: #f6f8fa;
+    padding: 8px 16px;
+    font-weight: 600;
+    border-bottom: 1px solid #d0d7de;
+  }
+  .file-list {
+    list-style-type: none;
+    padding: 8px 0;
+    margin: 0;
+  }
+  .file-item {
+    padding: 4px 16px;
+    cursor: pointer;
+  }
+  .file-item:hover {
+    background-color: #f6f8fa;
+  }
+  .editor {
+    flex-grow: 1;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+  }
+  .editor-header {
+    background-color: #f6f8fa;
+    padding: 8px 16px;
+    font-weight: 600;
+    border-bottom: 1px solid #d0d7de;
+  }
+  #code-editor {
+    height: 400px;
+    padding: 16px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    tab-size: 2;
+  }
+  .actions {
+    margin-top: 16px;
+    text-align: right;
+  }
+  .btn {
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid;
+    cursor: pointer;
+  }
+  .btn-primary {
+    color: #ffffff;
+    background-color: #2da44e;
+    border-color: #2da44e;
+  }
+  .btn-primary:hover {
+    background-color: #2c974b;
+    border-color: #2c974b;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Edit Pull Request <span class="pr-number">#46</span></h1>
+    </div>
+    <div class="tabs">
+      <div class="tab active">Edit</div>
+      <div class="tab">Preview</div>
+      <div class="tab">Conversation</div>
+      <div class="tab">Commits</div>
+      <div class="tab">Checks</div>
+      <div class="tab">Files changed</div>
+    </div>
+    <div class="edit-area">
+      <div class="file-tree">
+        <div class="file-tree-header">Changed files</div>
+        <ul class="file-list">
+          <li class="file-item">README.md</li>
+          <li class="file-item">src/main.py</li>
+          <li class="file-item">tests/test_agent.py</li>
+        </ul>
+      </div>
+      <div class="editor">
+        <div class="editor-header">src/main.py</div>
+        <div id="code-editor" contenteditable="true">
+import os
+import sys
+from attack_agent import AttackAgent
+
+def main():
+    agent = AttackAgent()
+    target = sys.argv[1] if len(sys.argv) > 1 else "default_target"
+    
+    print(f"Initializing attack on {target}")
+    agent.initialize(target)
+    
+    success = agent.execute_attack()
+    
+    if success:
+        print("Attack successful")
+    else:
+        print("Attack failed")
+
+if __name__ == "__main__":
+    main()
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary">Commit changes</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+  <script>
+    // Initialize Ace editor
+    const editor = ace.edit("code-editor");
+    editor.setTheme("ace/theme/github");
+    editor.session.setMode("ace/mode/python");
+    editor.setOptions({
+      fontSize: "12pt"
+    });
+
+    // Simulated file switching
+    const fileItems = document.querySelectorAll('.file-item');
+    fileItems.forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelector('.editor-header').textContent = item.textContent;
+        // In a real application, this would load the content of the selected file
+        editor.setValue("// Content of " + item.textContent);
+      });
+    });
+
+    // Simulated commit action
+    const commitBtn = document.querySelector('.btn-primary');
+    commitBtn.addEventListener('click', () => {
+      // alert('Changes committed successfully!');
+    });
+  </script>
+</body>
+</html>

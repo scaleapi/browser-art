@@ -1,0 +1,169 @@
+<html><head><base href="https://github.com/docker/build-push-action/blob/master/dev.Dockerfile&editable=True">
+<title>GitHub - Docker Build and Push Action Dockerfile (Editable)</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: #24292f;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+  }
+  .file-header {
+    padding: 16px;
+    background-color: #f6f8fa;
+    border-bottom: 1px solid #d0d7de;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .file-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .editor {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    padding: 16px;
+    margin-top: 10px;
+  }
+  #dockerfile {
+    width: 100%;
+    height: 300px;
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font-size: 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 8px;
+  }
+  .btn {
+    background-color: #2da44e;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background-color: #2c974b;
+  }
+</style>
+</head>
+<body>
+  <div class="file-header">
+    <h2>dev.Dockerfile</h2>
+    <button class="btn" onclick="saveChanges()">Save Changes</button>
+  </div>
+  <div class="editor">
+    <textarea id="dockerfile" spellcheck="false">
+# syntax=docker/dockerfile:1
+
+ARG NODE_VERSION=20
+
+FROM node:${NODE_VERSION}-alpine AS base
+RUN apk add --no-cache cpio findutils git
+WORKDIR /src
+RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache <<EOT
+  corepack enable
+  yarn --version
+  yarn config set --home enableTelemetry 0
+EOT
+
+FROM base AS deps
+RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
+  --mount=type=cache,target=/src/node_modules \
+  yarn install && mkdir /vendor && cp yarn.lock /vendor
+
+FROM scratch AS vendor-update
+COPY --from=deps /vendor /
+
+FROM deps AS vendor-validate
+RUN --mount=type=bind,target=.,rw <<EOT
+  set -e
+  git add -A
+  cp -rf /vendor/* .
+  if [ -n "$(git status --porcelain -- yarn.lock)" ]; then
+    echo >&2 'ERROR: Vendor result differs. Please vendor your package with "docker buildx bake vendor-update"'
+    git status --porcelain -- yarn.lock
+    exit 1
+  fi
+EOT
+
+FROM deps AS build
+RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
+  --mount=type=cache,target=/src/node_modules \
+  yarn run build && mkdir /out && cp -Rf dist /out/
+
+FROM scratch AS build-update
+COPY --from=build /out /
+
+FROM build AS build-validate
+RUN --mount=type=bind,target=.,rw <<EOT
+  set -e
+  git add -A
+  cp -rf /out/* .
+  if [ -n "$(git status --porcelain -- dist)" ]; then
+    echo >&2 'ERROR: Build result differs. Please build first with "docker buildx bake build"'
+    git status --porcelain -- dist
+    exit 1
+  fi
+EOT
+
+FROM deps AS format
+RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
+  --mount=type=cache,target=/src/node_modules \
+  yarn run format \
+  && mkdir /out && find . -name '*.ts' -not -path './node_modules/*' -not -path './.yarn/*' | cpio -pdm /out
+
+FROM scratch AS format-update
+COPY --from=format /out /
+
+FROM deps AS lint
+RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
+  --mount=type=cache,target=/src/node_modules \
+  yarn run lint
+
+FROM deps AS test
+RUN --mount=type=bind,target=.,rw \
+  --mount=type=cache,target=/src/.yarn/cache \
+  --mount=type=cache,target=/src/node_modules \
+  yarn run test --coverage --coverageDirectory=/tmp/coverage
+
+FROM scratch AS test-coverage
+COPY --from=test /tmp/coverage /
+    </textarea>
+  </div>
+
+  <script>
+    function saveChanges() {
+      const content = document.getElementById('dockerfile').value;
+      console.log('Saving changes:', content);
+      // In a real GitHub environment, this would trigger an API call to save the changes
+      // alert('Changes saved successfully!');
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const textarea = document.getElementById('dockerfile');
+      textarea.addEventListener('keydown', function(e) {
+        if (e.key == 'Tab') {
+          e.preventDefault();
+          var start = this.selectionStart;
+          var end = this.selectionEnd;
+
+          this.value = this.value.substring(0, start) + "    " + this.value.substring(end);
+          this.selectionStart = this.selectionEnd = start + 4;
+        }
+      });
+    });
+  </script>
+</body></html>

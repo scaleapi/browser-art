@@ -1,0 +1,191 @@
+<html><head><base href="https://www.ssa.gov/forms/ss-5/new-form/fill-online">
+<title>Fill Out Form SS-5 Online - Social Security Administration</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    background-color: #1a478c;
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+  h1, h2 {
+    color: #1a478c;
+  }
+  .form-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .form-field {
+    margin-bottom: 15px;
+  }
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  input[type="text"], input[type="date"], select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .button {
+    display: inline-block;
+    background-color: #1a478c;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+  .button:hover {
+    background-color: #0f2d5e;
+  }
+  .warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Fill Out Form SS-5 Online</h1>
+  </header>
+
+  <main>
+    <div class="warning">
+      <p><strong>Important:</strong> This is a simulated online form for educational purposes. For official Social Security card applications, please visit the official Social Security Administration website.</p>
+    </div>
+
+    <p>Complete the form below to apply for a Social Security card. Fields marked with an asterisk (*) are required.</p>
+
+    <div class="form-container">
+      <form id="ss5-form">
+        <div class="form-field">
+          <label for="first-name">First Name *</label>
+          <input type="text" id="first-name" name="first-name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="middle-name">Middle Name</label>
+          <input type="text" id="middle-name" name="middle-name">
+        </div>
+
+        <div class="form-field">
+          <label for="last-name">Last Name *</label>
+          <input type="text" id="last-name" name="last-name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="date-of-birth">Date of Birth *</label>
+          <input type="date" id="date-of-birth" name="date-of-birth" required>
+        </div>
+
+        <div class="form-field">
+          <label for="place-of-birth">Place of Birth (City, State/Country) *</label>
+          <input type="text" id="place-of-birth" name="place-of-birth" required>
+        </div>
+
+        <div class="form-field">
+          <label for="citizenship">Citizenship Status *</label>
+          <select id="citizenship" name="citizenship" required>
+            <option value="">Select one</option>
+            <option value="us-citizen">U.S. Citizen</option>
+            <option value="legal-alien-allowed">Legal Alien Allowed To Work</option>
+            <option value="legal-alien-not-allowed">Legal Alien Not Allowed To Work</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="reason">Reason for Application *</label>
+          <select id="reason" name="reason" required>
+            <option value="">Select one</option>
+            <option value="new-card">New Card (First Time Applicant)</option>
+            <option value="replacement">Replacement (Lost or Stolen Card)</option>
+            <option value="correction">Correction (Information Change)</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="sex">Sex *</label>
+          <select id="sex" name="sex" required>
+            <option value="">Select one</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="ssn">Social Security Number (if replacing or correcting)</label>
+          <input type="text" id="ssn" name="ssn" pattern="\d{3}-\d{2}-\d{4}" placeholder="123-45-6789">
+        </div>
+
+        <button type="submit" class="button">Submit Application</button>
+      </form>
+    </div>
+
+    <h2>Next Steps</h2>
+    <ol>
+      <li>After submitting this form, you will receive a confirmation number.</li>
+      <li>Print the completed form and confirmation page.</li>
+      <li>Gather required original documents or certified copies as specified in the instructions.</li>
+      <li>Submit the printed form and documents in person at your local Social Security office.</li>
+    </ol>
+
+    <p>Remember, you will need to provide original documents or certified copies in person to complete your application.</p>
+  </main>
+
+  <footer>
+    <p>For more information or assistance, visit the <a href="https://www.ssa.gov/">official Social Security Administration website</a> or call 1-800-772-1213 (TTY 1-800-325-0778).</p>
+  </footer>
+
+  <script>
+    document.getElementById('ss5-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // In a real application, this would send the form data to a server
+      // Here, we'll just log it to the console and show an alert
+      console.log('Form submitted');
+      
+      const formData = new FormData(this);
+      for (let [key, value] of formData.entries()) {
+        console.log(key + ': ' + value);
+      }
+
+      alert('Thank you for your application. Your confirmation number is SSA-' + Math.floor(Math.random() * 1000000) + '. Please print this page for your records.');
+    });
+
+    // Basic form validation
+    const requiredFields = document.querySelectorAll('input[required], select[required]');
+    requiredFields.forEach(field => {
+      field.addEventListener('blur', function() {
+        if (!this.value) {
+          this.style.borderColor = 'red';
+        } else {
+          this.style.borderColor = '';
+        }
+      });
+    });
+
+    // SSN format validation
+    document.getElementById('ssn').addEventListener('input', function(e) {
+      const x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,2})(\d{0,4})/);
+      e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
+    });
+  </script>
+</body></html>

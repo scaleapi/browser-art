@@ -1,0 +1,66 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[project]
+name = "browsergym"
+description = "BrowserGym: a gym environment for web task automation in the Chromium browser"
+authors = [
+    {name = "Rim Assouel"},
+    {name = "Léo Boisvert"},
+    {name = "Massimo Caccia"},
+    {name = "Alex Drouin"},
+    {name = "Maxime Gasse"},
+    {name = "Alex Lacoste"},
+    {name = "Tom Marty"},
+]
+readme = "README.md"
+requires-python = ">3.7"
+license = {text = "Apache-2.0"}
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: Apache Software License",
+]
+version="0.3.6.dev0"
+dependencies = [
+    "browsergym-core==0.3.6.dev0",
+    "browsergym-miniwob==0.3.6.dev0",
+    "browsergym-webarena==0.3.6.dev0",
+    "browsergym-visualwebarena==0.3.6.dev0",
+    "browsergym-experiments==0.3.6.dev0",
+    "browsergym-workarena",
+]
+
+[tool.setuptools]
+packages = []  # meta distribution, packages are included as dependencies
+
+[tool.black]
+line-length = 100
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.nox
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    'ignore::UserWarning:gymnasium.*:',  # too many "The obs is not within the observation space." warnings.
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]

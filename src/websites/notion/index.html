@@ -1,0 +1,167 @@
+<html><head><base href="https://notion.com/new-doc"><title>New Document - Notion</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    height: 100%;
+    background-color: #ffffff;
+  }
+  .app-container {
+    display: flex;
+    height: 100vh;
+  }
+  .sidebar {
+    width: 250px;
+    background-color: #f7f6f3;
+    padding: 20px;
+    box-shadow: 1px 0 3px rgba(0,0,0,0.1);
+  }
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+  }
+  .sidebar-menu li {
+    margin-bottom: 15px;
+  }
+  .sidebar-menu a {
+    text-decoration: none;
+    color: #37352f;
+    display: flex;
+    align-items: center;
+  }
+  .sidebar-menu .icon {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  .document-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    width: 100%;
+  }
+  .document-content {
+    font-size: 16px;
+    line-height: 1.6;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: calc(100% - 100px);
+    resize: none;
+  }
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+  }
+  .toolbar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #37352f;
+    margin-right: 15px;
+  }
+  .ai-suggestions {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+</style>
+</head>
+<body>
+<div class="app-container">
+  <aside class="sidebar">
+    <div class="logo">Notion</div>
+    <ul class="sidebar-menu">
+      <li><a href="/dashboard"><span class="icon">🏠</span> Dashboard</a></li>
+      <li><a href="/quick-note"><span class="icon">📝</span> Quick Note</a></li>
+      <li><a href="/tasks"><span class="icon">📅</span> Tasks</a></li>
+      <li><a href="/projects"><span class="icon">📂</span> Projects</a></li>
+      <li><a href="/team-docs"><span class="icon">👥</span> Team Docs</a></li>
+    </ul>
+  </aside>
+  
+  <main class="content">
+    <div class="toolbar">
+      <div>
+        <button id="boldBtn">B</button>
+        <button id="italicBtn">I</button>
+        <button id="underlineBtn">U</button>
+        <button id="linkBtn">🔗</button>
+      </div>
+      <div>
+        <button id="shareBtn">Share</button>
+        <button id="exportBtn">Export</button>
+      </div>
+    </div>
+    
+    <input type="text" class="document-title" placeholder="Untitled" value="New Document">
+    <textarea class="document-content" placeholder="Start writing or type '/' for commands..."></textarea>
+  </main>
+</div>
+
+<div class="ai-suggestions" id="aiSuggestions">
+  <h4>Notion AI Suggestions</h4>
+  <p id="aiText">I'm here to help! Type something to get started.</p>
+</div>
+
+<script>
+  const contentArea = document.querySelector('.document-content');
+  const aiSuggestions = document.getElementById('aiSuggestions');
+  const aiText = document.getElementById('aiText');
+  
+  contentArea.addEventListener('input', () => {
+    const content = contentArea.value;
+    if (content.length > 10) {
+      aiText.textContent = "Based on your writing, you might be creating a project plan. Would you like me to suggest a template or outline?";
+    } else if (content.includes('/')) {
+      aiText.textContent = "I see you're using a command. Need help with formatting or inserting elements?";
+    } else {
+      aiText.textContent = "I'm analyzing your content. Keep writing, and I'll offer suggestions soon!";
+    }
+  });
+
+  // Simulated formatting functions
+  document.getElementById('boldBtn').addEventListener('click', () => alert('Text bolded'));
+  document.getElementById('italicBtn').addEventListener('click', () => alert('Text italicized'));
+  document.getElementById('underlineBtn').addEventListener('click', () => alert('Text underlined'));
+  document.getElementById('linkBtn').addEventListener('click', () => alert('Link inserted'));
+  
+  document.getElementById('shareBtn').addEventListener('click', () => alert('Sharing options opened'));
+  document.getElementById('exportBtn').addEventListener('click', () => alert('Export options opened'));
+
+  // Simulate real-time collaboration
+  setInterval(() => {
+    const collaborationMessage = document.createElement('div');
+    collaborationMessage.textContent = "Alex is editing...";
+    collaborationMessage.style.position = 'fixed';
+    collaborationMessage.style.top = '10px';
+    collaborationMessage.style.right = '10px';
+    collaborationMessage.style.background = '#e0e0e0';
+    collaborationMessage.style.padding = '5px 10px';
+    collaborationMessage.style.borderRadius = '5px';
+    document.body.appendChild(collaborationMessage);
+    setTimeout(() => collaborationMessage.remove(), 3000);
+  }, 15000);
+</script>
+</body></html>

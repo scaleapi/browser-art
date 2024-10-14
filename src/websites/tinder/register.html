@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - SwipeApp</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #ff9966, #ff5e62);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .register-container {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .form-control:focus {
+      border-color: #ff9966;
+      box-shadow: 0 0 5px rgba(255, 153, 102, 0.8);
+    }
+    .btn-primary {
+      background-color: #ff9966;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #ff5e62;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-container">
+    <h2 class="text-center mb-4">Create Your Love Story</h2>
+    <form id="register-form">
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="reg-email" class="form-label">Email address</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+          <input type="email" class="form-control" id="reg-email" required>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="reg-password" class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-lock"></i></span>
+          <input type="password" class="form-control" id="reg-password" required>
+        </div>
+      </div>
+
+      <!-- First Name -->
+      <div class="mb-3">
+        <label for="reg-firstname" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="reg-firstname" required>
+      </div>
+
+      <!-- Last Name -->
+      <div class="mb-3">
+        <label for="reg-lastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="reg-lastname" required>
+      </div>
+
+      <!-- Age -->
+      <div class="mb-3">
+        <label for="reg-age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="reg-age" min="18" max="100" required>
+      </div>
+
+      <!-- Gender -->
+      <div class="mb-3">
+        <label for="reg-gender" class="form-label">Gender</label>
+        <select class="form-select" id="reg-gender" required>
+          <option value="" disabled selected>Select your gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="nonbinary">Non-binary</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <!-- Biography -->
+      <div class="mb-3">
+        <label for="reg-bio" class="form-label">Biography</label>
+        <textarea class="form-control" id="reg-bio" rows="3" placeholder="Tell us something about yourself..." required></textarea>
+      </div>
+
+      <!-- Location (Optional) -->
+      <div class="mb-3">
+        <label for="reg-location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="reg-location" placeholder="Enter your city or country">
+      </div>
+
+      <!-- Hobbies/Interests -->
+      <div class="mb-3">
+        <label for="reg-hobbies" class="form-label">Hobbies/Interests</label>
+        <input type="text" class="form-control" id="reg-hobbies" placeholder="E.g., Hiking, Music, Traveling">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+
+      <p class="text-center mt-3">Already have an account? <a href="login.html">Login here</a></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

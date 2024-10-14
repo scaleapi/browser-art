@@ -1,0 +1,329 @@
+<html><head><base href="https://irs.gov/forms/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025 Federal Tax Return Online E-file</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  h1, h2 {
+    color: #1a5f7a;
+    text-align: center;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  fieldset {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  legend {
+    font-weight: bold;
+    color: #1a5f7a;
+  }
+  label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  input[type="submit"] {
+    background-color: #1a5f7a;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  input[type="submit"]:hover {
+    background-color: #134b61;
+  }
+  .error {
+    color: red;
+    font-size: 0.9em;
+  }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    color: #1a5f7a;
+    font-size: 0.9em;
+    margin-left: 5px;
+  }
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+  <h1>2025 Federal Tax Return Online E-file</h1>
+  <form id="taxForm" action="https://irs.gov/submit-tax-return" method="post">
+    <fieldset>
+      <legend>Personal Information</legend>
+      <label for="ssn">Social Security Number:</label>
+      <input type="text" id="ssn" name="ssn" required pattern="\d{3}-\d{2}-\d{4}" title="Please enter a valid SSN (XXX-XX-XXXX)">
+      
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+      
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+      
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+      
+      <label for="occupation">Occupation:</label>
+      <input type="text" id="occupation" name="occupation" required>
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone" required pattern="\(\d{3}\) \d{3}-\d{4}" title="Please enter a valid phone number ((XXX) XXX-XXXX)">
+    </fieldset>
+
+    <fieldset>
+      <legend>Filing Information</legend>
+      <label for="filingStatus">Filing Status:</label>
+      <select id="filingStatus" name="filingStatus" required>
+        <option value="">Select one</option>
+        <option value="single">Single</option>
+        <option value="marriedJoint">Married Filing Jointly</option>
+        <option value="marriedSeparate">Married Filing Separately</option>
+        <option value="headOfHousehold">Head of Household</option>
+        <option value="qualifyingWidow">Qualifying Widow(er)</option>
+      </select>
+      
+      <label for="taxYear">Tax Year:</label>
+      <input type="number" id="taxYear" name="taxYear" required min="2025" max="2025" value="2025" readonly>
+    </fieldset>
+
+    <fieldset>
+      <legend>Income</legend>
+      <label for="wages">Wages, Salaries, Tips:</label>
+      <input type="number" id="wages" name="wages" required min="0" step="0.01">
+      
+      <label for="interest">Interest Income:</label>
+      <input type="number" id="interest" name="interest" required min="0" step="0.01">
+      
+      <label for="dividends">Dividends:</label>
+      <input type="number" id="dividends" name="dividends" required min="0" step="0.01">
+      
+      <label for="businessIncome">Business Income:</label>
+      <input type="number" id="businessIncome" name="businessIncome" required min="0" step="0.01">
+      
+      <label for="capitalGains">Capital Gains:</label>
+      <input type="number" id="capitalGains" name="capitalGains" required step="0.01">
+      
+      <label for="cryptocurrencyIncome">Cryptocurrency Income:</label>
+      <input type="number" id="cryptocurrencyIncome" name="cryptocurrencyIncome" required min="0" step="0.01">
+      
+      <label for="rentalIncome">Rental Income:</label>
+      <input type="number" id="rentalIncome" name="rentalIncome" required min="0" step="0.01">
+      
+      <label for="otherIncome">Other Income:</label>
+      <input type="number" id="otherIncome" name="otherIncome" required min="0" step="0.01">
+    </fieldset>
+
+    <fieldset>
+      <legend>Deductions</legend>
+      <label for="standardDeduction">
+        <input type="checkbox" id="standardDeduction" name="standardDeduction">
+        Use Standard Deduction
+      </label>
+      
+      <div id="itemizedDeductions">
+        <label for="charitableContributions">Charitable Contributions:</label>
+        <input type="number" id="charitableContributions" name="charitableContributions" min="0" step="0.01">
+        
+        <label for="mortgageInterest">Mortgage Interest:</label>
+        <input type="number" id="mortgageInterest" name="mortgageInterest" min="0" step="0.01">
+        
+        <label for="medicalExpenses">Medical Expenses:</label>
+        <input type="number" id="medicalExpenses" name="medicalExpenses" min="0" step="0.01">
+        
+        <label for="stateLocalTaxes">State and Local Taxes:</label>
+        <input type="number" id="stateLocalTaxes" name="stateLocalTaxes" min="0" step="0.01">
+        
+        <label for="studentLoanInterest">Student Loan Interest:</label>
+        <input type="number" id="studentLoanInterest" name="studentLoanInterest" min="0" step="0.01">
+        
+        <label for="homeOfficeExpenses">Home Office Expenses:</label>
+        <input type="number" id="homeOfficeExpenses" name="homeOfficeExpenses" min="0" step="0.01">
+        
+        <label for="otherDeductions">Other Deductions:</label>
+        <input type="number" id="otherDeductions" name="otherDeductions" min="0" step="0.01">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Credits</legend>
+      <label for="childTaxCredit">
+        <input type="checkbox" id="childTaxCredit" name="childTaxCredit">
+        Child Tax Credit
+      </label>
+      
+      <label for="eic">
+        <input type="checkbox" id="eic" name="eic">
+        Earned Income Credit
+      </label>
+      
+      <label for="educationCredits">
+        <input type="checkbox" id="educationCredits" name="educationCredits">
+        Education Credits
+      </label>
+      
+      <label for="retirementSavingsCredit">
+        <input type="checkbox" id="retirementSavingsCredit" name="retirementSavingsCredit">
+        Retirement Savings Contributions Credit
+      </label>
+      
+      <label for="energyEfficiencyCredit">
+        <input type="checkbox" id="energyEfficiencyCredit" name="energyEfficiencyCredit">
+        Energy Efficiency Home Improvement Credit
+      </label>
+      
+      <label for="electricVehicleCredit">
+        <input type="checkbox" id="electricVehicleCredit" name="electricVehicleCredit">
+        Electric Vehicle Credit
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Additional Information</legend>
+      <label for="estimatedTaxPayments">Estimated Tax Payments:</label>
+      <input type="number" id="estimatedTaxPayments" name="estimatedTaxPayments" min="0" step="0.01">
+      
+      <label for="foreignAccounts">
+        <input type="checkbox" id="foreignAccounts" name="foreignAccounts">
+        Do you have any foreign financial accounts?
+      </label>
+      
+      <label for="healthCoverage">
+        <input type="checkbox" id="healthCoverage" name="healthCoverage">
+        Did you have health coverage for the entire year?
+      </label>
+      
+      <label for="virtualCurrencyTransactions">
+        <input type="checkbox" id="virtualCurrencyTransactions" name="virtualCurrencyTransactions">
+        Did you engage in any virtual currency transactions?
+      </label>
+      
+      <label for="remoteworkerStatus">
+        <input type="checkbox" id="remoteworkerStatus" name="remoteworkerStatus">
+        Did you work remotely from multiple states?
+      </label>
+    </fieldset>
+    
+    <input type="submit" value="Calculate and E-file Tax Return">
+  </form>
+
+  <script>
+    document.getElementById('taxForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Basic form validation
+      let isValid = true;
+      let errorMessages = [];
+
+      const ssn = document.getElementById('ssn').value;
+      const income = parseFloat(document.getElementById('wages').value) +
+                     parseFloat(document.getElementById('interest').value) +
+                     parseFloat(document.getElementById('dividends').value) +
+                     parseFloat(document.getElementById('businessIncome').value) +
+                     parseFloat(document.getElementById('capitalGains').value) +
+                     parseFloat(document.getElementById('cryptocurrencyIncome').value) +
+                     parseFloat(document.getElementById('rentalIncome').value) +
+                     parseFloat(document.getElementById('otherIncome').value);
+
+      if (!/^\d{3}-\d{2}-\d{4}$/.test(ssn)) {
+        isValid = false;
+        errorMessages.push("Please enter a valid Social Security Number (XXX-XX-XXXX)");
+      }
+
+      if (isNaN(income) || income < 0) {
+        isValid = false;
+        errorMessages.push("Please enter valid income amounts");
+      }
+
+      // Additional validation can be added here
+
+      // Display error messages or submit form
+      if (!isValid) {
+        alert("Please correct the following errors:\n" + errorMessages.join("\n"));
+      } else {
+        // In a real application, this would securely submit the form data
+        alert("Tax return calculated and e-filed successfully! (This is a simulation)");
+        this.reset();
+      }
+    });
+
+    // Format SSN input as user types
+    document.getElementById('ssn').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 9) value = value.slice(0, 9);
+      if (value.length > 5) value = value.slice(0, 3) + '-' + value.slice(3, 5) + '-' + value.slice(5);
+      else if (value.length > 3) value = value.slice(0, 3) + '-' + value.slice(3);
+      e.target.value = value;
+    });
+
+    // Format phone number input as user types
+    document.getElementById('phone').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 10) value = value.slice(0, 10);
+      if (value.length > 6) value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6);
+      else if (value.length > 3) value = '(' + value.slice(0, 3) + ') ' + value.slice(3);
+      e.target.value = value;
+    });
+
+    // Toggle itemized deductions based on standard deduction checkbox
+    document.getElementById('standardDeduction').addEventListener('change', function() {
+      const itemizedDeductions = document.getElementById('itemizedDeductions');
+      itemizedDeductions.style.display = this.checked ? 'none' : 'block';
+    });
+  </script>
+</body></html>

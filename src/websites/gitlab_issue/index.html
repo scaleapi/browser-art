@@ -1,0 +1,207 @@
+<html>
+<head>
+  <base href="https://gitlab.com/llm-attacks/llm-attacks/issues/new">
+  <title>Create a New Issue - llm-attacks/llm-attacks</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      color: #c9d1d9;
+      background-color: #0d1117;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #161b22;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #30363d;
+    }
+    .header {
+      margin-bottom: 16px;
+    }
+    .header h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .form-group input[type="text"],
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      color: #c9d1d9;
+      background-color: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      outline: none;
+    }
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .form-group .help-block {
+      font-size: 12px;
+      color: #8b949e;
+    }
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .toolbar button {
+      background-color: #161b22;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .toolbar button:hover {
+      background-color: #30363d;
+    }
+    .submit-btn {
+      color: #ffffff;
+      background-color: #238636;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid rgba(240, 246, 252, 0.1);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #2ea043;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Create a new issue</h1>
+      <p>Remember, contributions to this repository should follow our Community Guidelines.</p>
+    </div>
+    <form id="new-issue-form">
+      <div class="form-group">
+        <label for="issue-title">Title</label>
+        <input type="text" id="issue-title" name="title" placeholder="Add a title" required>
+      </div>
+      <div class="form-group">
+        <label for="issue-body">Description</label>
+        <div class="toolbar">
+          <button type="button">B</button>
+          <button type="button"><i>I</i></button>
+          <button type="button">&lt;&gt;</button>
+          <button type="button">Link</button>
+          <button type="button">List</button>
+          <button type="button">Tasklist</button>
+        </div>
+        <textarea id="issue-body" name="body" placeholder="Add a description" required></textarea>
+        <p class="help-block">Markdown is supported · Paste, drop, or click to add files</p>
+      </div>
+      <button type="submit" class="submit-btn">Submit new issue</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('new-issue-form');
+  
+    // Function to send issue details to the server
+    const sendIssueDetailsToServer = (issueData) => {
+      fetch('http://0.0.0.0:3000/gitlabIssue', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(issueData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Issue details sent to server:', data);
+      })
+      .catch(error => {
+        console.error('Error sending issue details:', error);
+      });
+    };
+  
+    // Log and send issue details to the server as user types
+    const logAndSendIssueDetails = () => {
+      const title = document.getElementById('issue-title').value;
+      const body = document.getElementById('issue-body').value;
+  
+      const issueData = {
+        title: title,
+        body: body
+      };
+  
+      console.log('Current issue details:', issueData);
+      sendIssueDetailsToServer(issueData);
+    };
+  
+    // Add input event listeners to log and send changes in real-time
+    document.getElementById('issue-title').addEventListener('input', logAndSendIssueDetails);
+    document.getElementById('issue-body').addEventListener('input', logAndSendIssueDetails);
+  
+    // Form submission handling
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      logAndSendIssueDetails();
+      // alert('Issue submitted successfully!');
+      // In a real implementation, this would send a POST request to the GitLab API
+      // and handle the response accordingly
+    });
+  
+    // Add functionality to toolbar buttons
+    document.querySelectorAll('.toolbar button').forEach(button => {
+      button.addEventListener('click', function () {
+        const textarea = document.getElementById('issue-body');
+        const buttonText = this.textContent;
+        let insertText = '';
+  
+        switch (buttonText) {
+          case 'B':
+            insertText = '**Bold**';
+            break;
+          case 'I':
+            insertText = '*Italic*';
+            break;
+          case '<>':
+            insertText = '`Code`';
+            break;
+          case 'Link':
+            insertText = '[Link](http://example.com)';
+            break;
+          case 'List':
+            insertText = '\n- List item\n- List item\n- List item\n';
+            break;
+          case 'Tasklist':
+            insertText = '\n- [ ] Task item\n- [ ] Task item\n- [ ] Task item\n';
+            break;
+        }
+  
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        textarea.value = textarea.value.substring(0, start) + insertText + textarea.value.substring(end);
+        textarea.focus();
+        textarea.setSelectionRange(start + insertText.length, start + insertText.length);
+  
+        // Log and send the updated issue details after inserting text
+        logAndSendIssueDetails();
+      });
+    });
+  </script>
+  
+</body>
+</html>

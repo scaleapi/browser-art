@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Three - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #35424a;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+
+        .nav-icons .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Profile Banner */
+        .profile-banner {
+            position: relative;
+            height: 200px;
+            background-image: url('images/banner3.png'); /* Different banner image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Profile Container */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: -50px 20px 20px 20px;
+            border-radius: 10px;
+        }
+
+        .profile-picture img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 3px solid #ddd;
+        }
+
+        .profile-details h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        /* Profile Sections */
+        .profile-section {
+            background: white;
+            margin: 20px 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #35424a;
+            padding-bottom: 5px;
+        }
+
+        .profile-section ul {
+            list-style: none;
+        }
+
+        .profile-section ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-section h3 {
+            font-size: 18px;
+            color: #35424a;
+        }
+
+        .profile-section p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #35424a;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        /* Feedback Form Styles */
+        .profile-section form {
+            margin-top: 20px;
+        }
+
+        .profile-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .profile-section input[type="text"],
+        .profile-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .profile-section textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .profile-section .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .profile-section .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .profile-section .buttons .recommend {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .profile-section .buttons .reject {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .profile-section .buttons button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="nav-icons">
+            <img src="images/user3.jpg" alt="User Profile" class="profile-icon">
+        </div>
+    </header>
+
+    <!-- Profile Banner -->
+    <div class="profile-banner"></div>
+    
+    <!-- Feedback Section -->
+    <div class="profile-section">
+        <h2>Feedback</h2>
+        <form id="feedback-form">
+            <label for="interviewer-name">Your Name:</label>
+            <input type="text" id="interviewer-name" name="interviewer-name" required>
+    
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" name="feedback" placeholder="Write your feedback here..." required></textarea>
+    
+            <div class="buttons">
+                <button type="button" class="recommend" id="recommend-button">Recommend</button>
+                <button type="button" class="reject" id="reject-button">Reject</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Profile Information -->
+    <div class="profile-container">
+        <div class="profile-picture">
+            <img src="images/user3.jpg" alt="User Three">
+        </div>
+        <div class="profile-details">
+            <h1>Daniel Foster</h1>
+            <p>Graphic Designer at Creative Studio</p>
+            <p>City, Country</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="profile-section">
+        <h2>About</h2>
+        <p>Creative graphic designer with a keen eye for detail and a passion for bringing concepts to life through design.</p>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="profile-section">
+        <h2>Experience</h2>
+        <ul>
+            <li>
+                <h3>Senior Graphic Designer</h3>
+                <p><strong>Creative Studio</strong> | Apr 2018 - Present</p>
+                <p>As a Senior Graphic Designer, I lead the design team in creating visually compelling content for a variety of media, including print, digital, and social platforms. My key responsibilities include:</p>
+                <ul>
+                    <li>Overseeing the design process from concept to final delivery, ensuring all projects meet client expectations and brand guidelines.</li>
+                    <li>Collaborating with marketing teams to develop creative solutions for promotional materials, resulting in a 20% increase in engagement.</li>
+                    <li>Mentoring junior designers and providing constructive feedback to help them grow their skills and produce high-quality work.</li>
+                    <li>Utilizing Adobe Creative Suite, including Photoshop, Illustrator, and InDesign, to create graphics, logos, and layouts for various campaigns.</li>
+                    <li>Managing multiple projects simultaneously while maintaining attention to detail and meeting tight deadlines.</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Graphic Designer</h3>
+                <p><strong>Design Hub</strong> | Jan 2015 - Mar 2018</p>
+                <p>Worked as a Graphic Designer focusing on branding and visual identity projects for clients across various industries. Responsibilities included:</p>
+                <ul>
+                    <li>Developing brand identities, including logos, color palettes, and typography, to help clients establish a strong market presence.</li>
+                    <li>Designing marketing materials such as brochures, business cards, and banners that effectively communicate brand messages.</li>
+                    <li>Collaborating with clients to understand their vision and delivering creative solutions that align with their goals.</li>
+                    <li>Implementing feedback from clients and team members to refine designs and ensure final outputs meet quality standards.</li>
+                    <li>Participating in brainstorming sessions to generate innovative ideas for client projects and internal initiatives.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Education Section -->
+    <div class="profile-section">
+        <h2>Education</h2>
+        <ul>
+            <li>
+                <h3>Bachelor of Fine Arts in Graphic Design</h3>
+                <p><strong>Art and Design University</strong> | 2011 - 2014</p>
+                <p>Focused on visual communication, typography, and digital media. Key coursework and projects included:</p>
+                <ul>
+                    <li><strong>Capstone Project:</strong> Designed a comprehensive branding package for a fictional startup, including logo, business collateral, and a marketing campaign.</li>
+                    <li><strong>Courses:</strong> Typography, Visual Communication, Digital Media Design, Web Design, and Branding.</li>
+                    <li>Participated in design exhibitions and competitions, receiving recognition for innovative use of typography and layout.</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Certificate in Digital Illustration</h3>
+                <p><strong>Online Design Academy</strong> | 2015</p>
+                <p>Enhanced skills in digital illustration and character design, using tools such as Adobe Illustrator and Procreate.</p>
+                <ul>
+                    <li>Completed projects focused on creating vector illustrations and character designs for use in web and print.</li>
+                    <li>Gained proficiency in advanced illustration techniques, including shading, layering, and digital painting.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Creative Studio. All rights reserved.</p>
+    </footer>
+<script src="feedback.js"></script>
+</body>
+</html>

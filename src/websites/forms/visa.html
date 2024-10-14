@@ -1,0 +1,164 @@
+<html><head><base href="https://www.canada.ca/en/immigration-refugees-citizenship.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visitor Visa Application - Government of Canada</title>
+<style>
+  body {
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  header {
+    background-color: #335075;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+  }
+  h1 {
+    margin: 0;
+  }
+  form {
+    margin-top: 20px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #26374a;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .btn:hover {
+    background-color: #1a2530;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Visitor Visa Application</h1>
+  </header>
+
+  <div class="container">
+    <form id="visitorVisaForm" action="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/account.html" method="post">
+      <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nationality">Nationality:</label>
+        <input type="text" id="nationality" name="nationality" required>
+      </div>
+
+      <div class="form-group">
+        <label for="passportNumber">Passport Number:</label>
+        <input type="text" id="passportNumber" name="passportNumber" required>
+      </div>
+
+      <div class="form-group">
+        <label for="passportExpiry">Passport Expiry Date:</label>
+        <input type="date" id="passportExpiry" name="passportExpiry" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Current Address:</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="purpose">Purpose of Visit:</label>
+        <select id="purpose" name="purpose" required>
+          <option value="">Select purpose</option>
+          <option value="tourism">Tourism</option>
+          <option value="business">Business</option>
+          <option value="family">Visiting Family/Friends</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="entryDate">Intended Date of Entry:</label>
+        <input type="date" id="entryDate" name="entryDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="duration">Intended Duration of Stay (days):</label>
+        <input type="number" id="duration" name="duration" min="1" max="180" required>
+      </div>
+
+      <div class="form-group">
+        <label for="funds">Proof of Funds:</label>
+        <input type="file" id="funds" name="funds" accept=".pdf,.jpg,.png" required>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn">Submit Application</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('visitorVisaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Here you would typically send the form data to a server
+      // For demonstration, we'll just log it to the console
+      console.log('Form submitted!');
+      
+      // You could also add validation here before submission
+      
+      alert('Your application has been submitted successfully. You will receive a confirmation email shortly.');
+      
+      // Redirect to a thank you page or the main IRCC page
+      window.location.href = 'https://www.canada.ca/en/immigration-refugees-citizenship.html';
+    });
+  </script>
+</body>
+</html>

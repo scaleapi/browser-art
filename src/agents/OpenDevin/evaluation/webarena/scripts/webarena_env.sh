@@ -1,0 +1,9 @@
+export BASE_URL="http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com"
+export SHOPPING="$BASE_URL:7770/"
+export SHOPPING_ADMIN="$BASE_URL:7780/admin"
+export REDDIT="$BASE_URL:9999"
+export GITLAB="$BASE_URL:8023"
+export WIKIPEDIA="$BASE_URL:8888/wikipedia_en_all_maxi_2022-05/A/User:The_other_Kiwix_guy/Landing"
+export MAP="$BASE_URL:3000"
+export HOMEPAGE="$BASE_URL:4399"
+export OPENAI_API_KEY="yourkey" # this key is required for some WebArena validators that utilize LLMs

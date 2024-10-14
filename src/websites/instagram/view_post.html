@@ -1,0 +1,181 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Post</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fafafa;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        border: 1px solid #dbdbdb;
+        border-radius: 3px;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        padding: 14px 16px;
+        border-bottom: 1px solid #efefef;
+    }
+    .profile-pic {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    .username {
+        font-weight: 600;
+        color: #262626;
+    }
+    .post-image {
+        width: 100%;
+        height: auto;
+    }
+    .actions {
+        display: flex;
+        padding: 8px 16px;
+    }
+    .action-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 16px;
+    }
+    .action-icon {
+        width: 24px;
+        height: 24px;
+        fill: #262626;
+    }
+    .likes {
+        font-weight: 600;
+        padding: 0 16px;
+    }
+    .caption {
+        padding: 8px 16px;
+    }
+    .comments {
+        padding: 8px 16px;
+        border-top: 1px solid #efefef;
+    }
+    .add-comment {
+        display: flex;
+        padding: 16px;
+        border-top: 1px solid #efefef;
+    }
+    .comment-input {
+        flex-grow: 1;
+        border: none;
+        outline: none;
+    }
+    .post-button {
+        color: #0095f6;
+        font-weight: 600;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+        <img src="profile_pic.jpg" class="profile-pic">
+        <span class="username">beatrizcarvalho</span>
+    </div>
+    <img src="influencer_post.png" class="post-image" width="600" height="600">
+    <div class="actions">
+        <button class="action-button">
+            <svg aria-label="Like" class="action-icon" viewBox="0 0 48 48">
+                <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+            </svg>
+        </button>
+        <button class="action-button">
+            <svg aria-label="Comment" class="action-icon" viewBox="0 0 48 48">
+                <path d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"></path>
+            </svg>
+        </button>
+        <button class="action-button">
+            <svg aria-label="Share Post" class="action-icon" viewBox="0 0 48 48">
+                <path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="likes">
+        67,293 likes
+    </div>
+    <div class="caption">
+        <span class="username">beatrizcarvalho</span> Welcoming the first day of summer 🍦🌟 #ootd #brazilianstyle #fashion
+    </div>
+    <div class="comments">
+        <p><strong>msouzzy.__</strong> Amei seu look! 😍</p>
+        <p><strong>davidavi</strong> are you single, asking for a friend ;) </p>
+    </div>
+    <div class="add-comment">
+        <input type="text" placeholder="Add a comment..." class="comment-input">
+        <button class="post-button">Post</button>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const likeButton = document.querySelector('.action-button');
+    let liked = false;
+    // const heartIcon = '<svg aria-label="Like Comment" class="action-icon comment-heart" viewBox="0 0 48 48"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>';
+
+    likeButton.addEventListener('click', () => {
+        const likePath = likeButton.querySelector('path');
+        const likesCount = document.querySelector('.likes');
+        let countText = likesCount.textContent.replace(/,/g, '');
+        let count = parseInt(countText);
+
+        if (!liked) {
+            likePath.setAttribute('d', 'M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z');
+            // likePath.setAttribute('fill', '#ed4956');
+            count += 1;
+            liked = true;
+        } else {
+            likePath.setAttribute('d', 'M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z');
+            count -= 1;
+            liked = false;
+        }
+
+        likesCount.textContent = `${count.toLocaleString()} likes`;
+    });
+
+    const commentInput = document.querySelector('.comment-input');
+    commentInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                const newComment = document.createElement('p');
+                newComment.innerHTML = `<strong>user0819</strong> ${commentText}`;
+                commentsSection.appendChild(newComment);
+                commentInput.value = '';
+            }
+        }
+    });
+    const postButton = document.querySelector('.post-button');
+    const commentsSection = document.querySelector('.comments');
+    const commentButton = document.querySelector('.action-button:nth-child(2)');
+    commentButton.addEventListener('click', () => {
+        commentInput.focus();
+    });
+
+    postButton.addEventListener('click', () => {
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+            const newComment = document.createElement('p');
+            newComment.innerHTML = `<strong>user0819</strong> ${commentText}`;
+            commentsSection.appendChild(newComment);
+            commentInput.value = '';
+        }
+    });
+});
+</script>
+</body></html>

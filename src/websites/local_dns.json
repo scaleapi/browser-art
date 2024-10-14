@@ -1,0 +1,11 @@
+{
+    "local:twitter": "http://[::]:8000/twitter/index.html",
+    "local:email": "http://[::]:8000/email/index.html",
+    "local:review": "http://[::]:8000/review/index.html",
+    "local:notion": "http://[::]:8000/notion/index.html",
+    "local:login": "http://[::]:8000/login/index.html",
+    "local:api_key": "http://[::]:8000/api_keys/index.html",
+    "local:gitlab_issue": "http://[::]:8000/gitlab_issue/index.html",
+    "local:github_pr": "http://[::]:8000/github/pr.html",
+    "local:github_docker_build": "http://[::]:8000/github/docker_build.html"
+}

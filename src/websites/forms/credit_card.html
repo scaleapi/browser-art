@@ -1,0 +1,273 @@
+<html><head><base href="https://explorercreditcard.com/"><title>Apply for the Explorer Credit Card</title>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9;
+    color: #333;
+}
+header {
+    background-color: #1a3a5e;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+.card-container {
+    perspective: 1000px;
+    margin: 40px auto;
+    width: 350px;
+    height: 200px;
+}
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.card:hover {
+    transform: rotateY(180deg);
+}
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.card-front {
+    background: linear-gradient(135deg, #1a3a5e, #2c5a8f);
+}
+.card-back {
+    background: linear-gradient(135deg, #2c5a8f, #1a3a5e);
+    transform: rotateY(180deg);
+}
+form {
+    display: grid;
+    gap: 20px;
+}
+label {
+    font-weight: bold;
+    color: #1a3a5e;
+}
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccdae6;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: #2c5a8f;
+}
+button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+button:hover {
+    background-color: #e68a00;
+    transform: translateY(-2px);
+}
+button:active {
+    transform: translateY(0);
+}
+.benefits {
+    margin-top: 40px;
+    background-color: #e6f0f9;
+    padding: 25px;
+    border-radius: 10px;
+}
+.benefits h2 {
+    color: #1a3a5e;
+    margin-top: 0;
+}
+.benefits ul {
+    padding-left: 25px;
+}
+.benefits li {
+    margin-bottom: 10px;
+}
+.address-fields {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+}
+.address-fields .full-width {
+    grid-column: 1 / -1;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>Explorer Credit Card Application</h1>
+    </header>
+    <main>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-front">
+                    <svg width="100%" height="100%" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="350" height="200" rx="15" ry="15" fill="url(#grad1)"/>
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1a3a5e;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2c5a8f;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <text x="20" y="40" fill="white" font-size="24" font-weight="bold">Explorer</text>
+                        <rect x="20" y="140" width="60" height="40" rx="5" ry="5" fill="gold"/>
+                        <text x="20" y="180" fill="white" font-size="16">XXXX XXXX XXXX XXXX</text>
+                        <text x="20" y="120" fill="white" font-size="14">YOUR NAME HERE</text>
+                        <text x="280" y="120" fill="white" font-size="14">VALID THRU</text>
+                        <text x="280" y="140" fill="white" font-size="14">MM/YY</text>
+                    </svg>
+                </div>
+                <div class="card-back">
+                    <svg width="100%" height="100%" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="350" height="200" rx="15" ry="15" fill="url(#grad2)"/>
+                        <defs>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2c5a8f;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1a3a5e;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect y="30" width="350" height="50" fill="#333"/>
+                        <rect x="20" y="100" width="310" height="30" fill="white"/>
+                        <text x="290" y="122" fill="#333" font-size="14">CVV</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <form id="application-form">
+            <label for="full-name">Full Name:</label>
+            <input type="text" id="full-name" name="full-name" required>
+            
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="ssn">Social Security Number:</label>
+            <input type="password" id="ssn" name="ssn" required pattern="\d{3}-?\d{2}-?\d{4}" title="Please enter a valid SSN (e.g., 123-45-6789)">
+            
+            <label>Home Address:</label>
+            <div class="address-fields">
+                <div class="full-width">
+                    <input type="text" id="street-address" name="street-address" placeholder="Street Address" required>
+                </div>
+                <div class="full-width">
+                    <input type="text" id="address-line2" name="address-line2" placeholder="Apartment, suite, etc. (optional)">
+                </div>
+                <div>
+                    <input type="text" id="city" name="city" placeholder="City" required>
+                </div>
+                <div>
+                    <select id="state" name="state" required>
+                        <option value="">Select State</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <!-- Add all other states here -->
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="text" id="zip" name="zip" placeholder="ZIP Code" required>
+                </div>
+                <div>
+                    <select id="country" name="country" required>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <!-- Add other countries as needed -->
+                    </select>
+                </div>
+            </div>
+            
+            <label for="annual-income">Annual Income:</label>
+            <input type="number" id="annual-income" name="annual-income" min="0" step="1000" required>
+            
+            <label for="employment-status">Employment Status:</label>
+            <select id="employment-status" name="employment-status" required>
+                <option value="">Select one...</option>
+                <option value="full-time">Full-time</option>
+                <option value="part-time">Part-time</option>
+                <option value="self-employed">Self-employed</option>
+                <option value="unemployed">Unemployed</option>
+                <option value="retired">Retired</option>
+            </select>
+            
+            <button type="submit">Submit Application</button>
+        </form>
+        
+        <div class="benefits">
+            <h2>Explorer Card Benefits</h2>
+            <ul>
+                <li>3% cashback on travel purchases</li>
+                <li>2% cashback on dining and entertainment</li>
+                <li>1.5% cashback on all other purchases</li>
+                <li>No foreign transaction fees</li>
+                <li>Complimentary travel insurance</li>
+                <li>24/7 concierge service</li>
+                <li>Access to exclusive events and experiences</li>
+            </ul>
+        </div>
+    </main>
+
+<script>
+document.getElementById('application-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Collect form data
+    const formData = new FormData(event.target);
+    const applicationData = Object.fromEntries(formData.entries());
+    
+    // Remove SSN from logged data for security
+    const { ssn, ...logSafeData } = applicationData;
+    console.log('Application submitted:', logSafeData);
+    
+    // Here you would typically send this data securely to a server
+    // using HTTPS and proper encryption methods
+    
+    // Show a success message to the user
+    alert('Thank you for your application! We will review your information and get back to you soon.');
+    
+    // Clear the form
+    event.target.reset();
+});
+
+// Add visual feedback for input fields
+const inputs = document.querySelectorAll('input, select');
+inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+        this.style.boxShadow = '0 0 5px rgba(44, 90, 143, 0.5)';
+    });
+    input.addEventListener('blur', function() {
+        this.style.boxShadow = 'none';
+    });
+});
+</script>
+</body>
+</html>

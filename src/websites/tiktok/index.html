@@ -1,0 +1,369 @@
+<html><head><base href="https://www.tiktok-register.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TikTok Registration - Styled</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    :root {
+        --primary-color: #fe2c55;
+        --secondary-color: #25f4ee;
+        --background-color: #010101;
+        --surface-color: #121212;
+        --text-color: #ffffff;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        background-image: 
+            radial-gradient(circle at 10% 20%, rgba(254, 44, 85, 0.1) 0%, transparent 20%),
+            radial-gradient(circle at 90% 80%, rgba(37, 244, 238, 0.1) 0%, transparent 20%);
+        background-attachment: fixed;
+    }
+
+    .container {
+        background-color: var(--surface-color);
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 500px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+            from 0deg at 50% 50%,
+            var(--primary-color) 0deg,
+            var(--secondary-color) 90deg,
+            transparent 180deg
+        );
+        animation: rotate 10s linear infinite;
+        opacity: 0.1;
+        z-index: -1;
+    }
+
+    @keyframes rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    h1 {
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 300;
+    }
+
+    input, select, textarea {
+        padding: 0.75rem;
+        border: 1px solid #333;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--text-color);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        width: 100%; /* Add this line */
+        box-sizing: border-box; /* Add this line */
+    }
+
+    textarea {
+        resize: vertical; /* Allow vertical resizing */
+        min-height: 100px; /* Set a minimum height */
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 2px rgba(37, 244, 238, 0.2);
+    }
+
+    button {
+        margin-top: 1.5rem;
+        padding: 0.75rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    button:hover {
+        background-color: #e62a4d;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(254, 44, 85, 0.3);
+    }
+
+    .logo {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .logo svg {
+        width: 60px;
+        height: 60px;
+        filter: drop-shadow(0 2px 4px rgba(254, 44, 85, 0.5));
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 6px;
+        background-color: #333;
+        margin-bottom: 1.5rem;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .progress {
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        transition: width 0.3s ease;
+    }
+
+    .form-section {
+        display: none;
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-section.active {
+        display: block;
+    }
+
+    .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+    }
+
+    .nav-buttons button {
+        flex: 1;
+        margin: 0 0.5rem;
+    }
+
+    #prev-btn {
+        background-color: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+    }
+
+    #prev-btn:hover {
+        background-color: rgba(254, 44, 85, 0.1);
+    }
+
+    #interests {
+        height: 100px;
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 1.75rem;
+        }
+        
+        input, select, textarea, button {
+            font-size: 0.9rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" fill="#FE2C55"/>
+            </svg>
+        </div>
+        <h1>Join TikTok</h1>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <form id="registration-form">
+            <div class="form-section active" id="section1">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-section" id="section2">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="13" required placeholder="Enter your age">
+
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="non-binary">Non-binary</option>
+                    <option value="prefer-not-to-say">Prefer not to say</option>
+                </select>
+
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-section" id="section3">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Choose a unique username">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Create a strong password">
+
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+            </div>
+
+            <div class="form-section" id="section4">
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" rows="3" placeholder="Tell us about yourself"></textarea>
+
+                <label for="interests">Interests (select multiple)</label>
+                <select id="interests" name="interests" multiple>
+                    <option value="dance">Dance</option>
+                    <option value="music">Music</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="food">Food</option>
+                    <option value="travel">Travel</option>
+                    <option value="sports">Sports</option>
+                    <option value="gaming">Gaming</option>
+                </select>
+
+                <label for="profile-pic">Profile Picture</label>
+                <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+            </div>
+
+            <div class="nav-buttons">
+                <button type="button" id="prev-btn" style="display: none;">Previous</button>
+                <button type="button" id="next-btn">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('registration-form');
+        const sections = document.querySelectorAll('.form-section');
+        const progress = document.getElementById('progress');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        let currentSection = 0;
+
+        function updateButtons() {
+            prevBtn.style.display = currentSection === 0 ? 'none' : 'block';
+            nextBtn.textContent = currentSection === sections.length - 1 ? 'Submit' : 'Next';
+        }
+
+        function updateProgress() {
+            const progressPercentage = ((currentSection + 1) / sections.length) * 100;
+            progress.style.width = `${progressPercentage}%`;
+        }
+
+        function showSection(index) {
+            sections[currentSection].classList.remove('active');
+            sections[index].classList.add('active');
+            currentSection = index;
+            updateButtons();
+            updateProgress();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSection > 0) {
+                showSection(currentSection - 1);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSection < sections.length - 1) {
+                if (validateSection(currentSection)) {
+                    showSection(currentSection + 1);
+                }
+            } else {
+                if (validateSection(currentSection)) {
+                    submitForm();
+                }
+            }
+        });
+
+        function validateSection(sectionIndex) {
+            const currentSectionElement = sections[sectionIndex];
+            const inputs = currentSectionElement.querySelectorAll('input, select, textarea');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (input.hasAttribute('required') && !input.value) {
+                    isValid = false;
+                    input.style.borderColor = 'red';
+                } else {
+                    input.style.borderColor = '#333';
+                }
+            });
+
+            if (!isValid) {
+                alert('Please fill in all required fields.');
+            }
+
+            return isValid;
+        }
+
+        function submitForm() {
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Here you would typically send this data to your server
+            console.log('Registration data:', data);
+
+            // For demonstration purposes, we'll just show an alert
+            alert('Thanks for registering! Welcome to TikTok!');
+        }
+
+        updateButtons();
+        updateProgress();
+    </script>
+</body></html>

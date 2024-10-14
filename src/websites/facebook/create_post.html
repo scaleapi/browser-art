@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post | Facebook</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #1877f2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            height: 56px;
+        }
+        .logo {
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .search-bar {
+            background-color: #f0f2f5;
+            border-radius: 50px;
+            padding: 8px 16px;
+            margin-left: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .search-icon {
+            color: #65676b;
+            margin-right: 8px;
+        }
+        .search-input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 15px;
+        }
+        .nav-icons {
+            display: flex;
+            margin-left: auto;
+        }
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1877f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 30px;
+            line-height: 1;
+            text-align: center;
+        }
+        .nav-icon-fa {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1877f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 30px;
+            line-height: 1;
+            text-align: center;
+            margin-top: 4px;
+        }
+        .container {
+            max-width: 680px;
+            margin: 76px auto 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .create-post-header {
+            padding: 16px;
+            border-bottom: 1px solid #e4e6eb;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .create-post-body {
+            padding: 16px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .post-privacy {
+            position: relative;
+            display: inline-block;
+        }
+        .privacy-select {
+            background-color: #e4e6eb; /* Gray background */
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 2px 8px;
+            appearance: none; /* Remove default styling */
+            width: 100%;
+            text-align: left;
+        }
+        .privacy-select::-ms-expand {
+            display: none; /* Hide default dropdown arrow in IE */
+        }
+        .privacy-select option {
+            background-color: #ffffff;
+            color: #65676b;
+            font-size: 12px;
+        }
+        .post-input {
+            font-family: Helvetica, Arial, sans-serif;
+            width: 100%;
+            min-height: 100px;
+            border: none;
+            resize: none;
+            font-size: 24px;
+            outline: none;
+            margin-bottom: 16px;
+        }
+        .post-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            border: 1px solid #e4e6eb;
+            border-radius: 8px;
+            padding: 8px;
+            background-color: #f9f9f9;
+        }
+        .option-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border: 1px solid #e4e6eb;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 14px;
+            color: #65676b;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+        .option-button:hover {
+            background-color: #e4e6eb;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .option-icon {
+            margin-right: 8px;
+        }
+        .post-button {
+            width: 100%;
+            background-color: #1877f2;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+        .post-button:disabled {
+            background-color: #e4e6eb;
+            color: #bcc0c4;
+            cursor: not-allowed;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<nav class="navbar">
+    <a href="/" class="logo">f</a>
+    <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search Facebook" class="search-input">
+    </div>
+    <div class="nav-icons">
+        <img src="profile_pic.jpg" class="nav-icon">
+        <i class="fas fa-comment nav-icon-fa"></i>
+        <i class="fas fa-bell nav-icon-fa"></i>
+        <i class="fas fa-chevron-down nav-icon-fa"></i>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="create-post-header">
+        Create post
+    </div>
+    <div class="create-post-body">
+        <div class="user-info">
+            <img src="profile_pic.jpg" class="user-avatar">
+            <div>
+                <div style="font-weight: bold;">Claudius Geminus</div>
+                <div class="post-privacy">
+                    <select class="privacy-select">
+                        <option value="Public">🌍 Public</option>
+                        <option value="Friends">👥 Friends</option>
+                        <option value="Only Me">🔒 Only Me</option>
+                    </select>
+                </div>                
+            </div>
+        </div>
+        <textarea class="post-input" placeholder="What's on your mind, John?"></textarea>
+        <div class="post-options">
+            <button class="option-button">
+                <span class="option-icon">🖼️</span> Photo/Video
+            </button>
+            <button class="option-button">
+                <span class="option-icon">👤</span> Tag People
+            </button>
+            <button class="option-button">
+                <span class="option-icon">😊</span> Feeling/Activity/Sticker
+            </button>
+            <button class="option-button">
+                <span class="option-icon">📍</span> Check In
+            </button>
+            <button class="option-button">
+                <span class="option-icon">🎥</span> Live Video
+            </button>
+            <button class="option-button">
+                <span class="option-icon">⚙️</span> More
+            </button>
+        </div>
+        <button class="post-button" disabled>Post</button>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const postInput = document.querySelector('.post-input');
+    const postButton = document.querySelector('.post-button');
+
+    postInput.addEventListener('input', () => {
+        if (postInput.value.trim().length > 0) {
+            postButton.disabled = false;
+        } else {
+            postButton.disabled = true;
+        }
+    });
+
+    postButton.addEventListener('click', () => {
+        if (postInput.value.trim().length > 0) {
+            const postContent = encodeURIComponent(postInput.value.trim());
+            const privacySelect = document.querySelector('.privacy-select');
+            const privacySetting = encodeURIComponent(privacySelect.value);
+            window.location.href = `post_created.html?post=${postContent}&privacy=${privacySetting}`;
+        }
+    });
+
+    const optionButtons = document.querySelectorAll('.option-button');
+    optionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert(`${button.textContent.trim()} option clicked!`);
+        });
+    });
+});
+</script>
+</body>
+</html>

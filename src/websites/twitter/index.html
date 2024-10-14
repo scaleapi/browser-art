@@ -1,0 +1,363 @@
+<html>
+
+<head>
+    <base href="https://twitter.com/compose/tweet-floating-window-over-newsfeed">Twitter logo, blue bird on white
+    background</image>
+    <title>Twitter - Compose Tweet Over Newsfeed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #0f1419;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+        }
+
+        .sidebar {
+            width: 275px;
+            padding: 20px;
+            border-right: 1px solid #EFF3F4;
+        }
+
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            cursor: pointer;
+        }
+
+        .nav-item i {
+            margin-right: 20px;
+            font-size: 24px;
+        }
+
+        .tweet-btn {
+            background-color: #1DA1F2;
+            color: #ffffff;
+            border: none;
+            border-radius: 9999px;
+            padding: 15px 0;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .tweet {
+            border-bottom: 1px solid #EFF3F4;
+            padding: 15px 0;
+        }
+
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .tweet-header img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .tweet-name {
+            font-weight: bold;
+        }
+
+        .tweet-username,
+        .tweet-time {
+            color: #536471;
+        }
+
+        .tweet-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            color: #536471;
+        }
+
+        .floating-window {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .floating-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #EFF3F4;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #1DA1F2;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .compose-area {
+            padding: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            border: none;
+            resize: none;
+            font-size: 18px;
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+
+        .floating-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-top: 1px solid #EFF3F4;
+        }
+
+        .media-actions button {
+            background: none;
+            border: none;
+            color: #1DA1F2;
+            font-size: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .float-tweet-btn {
+            background-color: #1DA1F2;
+            color: #ffffff;
+            border: none;
+            border-radius: 9999px;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .float-tweet-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .character-count {
+            color: #536471;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="twitter-logo.png" alt="Twitter Logo" class="logo">
+            <div class="nav-item"><i class="fas fa-home"></i>Home</div>
+            <div class="nav-item"><i class="fas fa-hashtag"></i>Explore</div>
+            <div class="nav-item"><i class="far fa-bell"></i>Notifications</div>
+            <div class="nav-item"><i class="far fa-envelope"></i>Messages</div>
+            <div class="nav-item"><i class="far fa-bookmark"></i>Bookmarks</div>
+            <div class="nav-item"><i class="far fa-user"></i>Profile</div>
+            <button class="tweet-btn" id="openTweet">Tweet</button>
+        </div>
+
+        <div class="main-content">
+            <div class="tweet">
+                <div class="tweet-header">
+                    <img src="https://picsum.photos/48" alt="User Avatar">
+                    <div>
+                        <span class="tweet-name">John Doe</span>
+                        <span class="tweet-username">@johndoe</span>
+                        <span class="tweet-time">· 2h</span>
+                    </div>
+                </div>
+                <div class="tweet-content">
+                    Excited to share my latest project! It's been a journey, but the results are worth it. #CodeLife
+                    #Innovation
+                </div>
+                <div class="tweet-actions">
+                    <i class="far fa-comment"></i>
+                    <i class="fas fa-retweet"></i>
+                    <i class="far fa-heart"></i>
+                    <i class="far fa-share-square"></i>
+                </div>
+            </div>
+            <div class="tweet">
+                <div class="tweet-header">
+                    <img src="https://picsum.photos/48?random=1" alt="User Avatar">
+                    <div>
+                        <span class="tweet-name">Tech News</span>
+                        <span class="tweet-username">@technews</span>
+                        <span class="tweet-time">· 5h</span>
+                    </div>
+                </div>
+                <div class="tweet-content">
+                    Breaking: New AI model shows promising results in natural language processing. What are your
+                    thoughts on the rapid advancements in AI? #AINews #TechTrends
+                </div>
+                <div class="tweet-actions">
+                    <i class="far fa-comment"></i>
+                    <i class="fas fa-retweet"></i>
+                    <i class="far fa-heart"></i>
+                    <i class="far fa-share-square"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" style="display: none;"></div>
+    <div class="floating-window" id="floatingWindow" style="display: none;">
+        <div class="floating-header">
+            <button class="close-btn" id="closeBtn">✕</button>
+            <button class="float-tweet-btn" id="floatTweetBtn" disabled>Tweet</button>
+        </div>
+
+        <div class="compose-area">
+            <textarea placeholder="What's happening?" maxlength="280" id="tweetText"></textarea>
+        </div>
+
+        <div class="floating-actions">
+            <div class="media-actions">
+                <button title="Add photos or video"><i class="far fa-image"></i></button>
+                <button title="Add a GIF"><i class="fas fa-gift"></i></button>
+                <button title="Create a poll"><i class="fas fa-poll-h"></i></button>
+                <button title="Add emoji"><i class="far fa-smile"></i></button>
+                <button title="Schedule Tweet"><i class="far fa-calendar-alt"></i></button>
+            </div>
+            <div>
+                <span class="character-count" id="charCount">0/280</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const openTweetBtn = document.getElementById('openTweet');
+            const overlay = document.getElementById('overlay');
+            const floatingWindow = document.getElementById('floatingWindow');
+            const closeBtn = document.getElementById('closeBtn');
+            const textarea = document.getElementById('tweetText');
+            const charCount = document.getElementById('charCount');
+            const floatTweetBtn = document.getElementById('floatTweetBtn');
+        
+            // Load saved tweet text from localStorage
+            if (localStorage.getItem('tweetText')) {
+                textarea.value = localStorage.getItem('tweetText');
+                charCount.textContent = `${textarea.value.length}/280`;
+                floatTweetBtn.disabled = textarea.value.length === 0 || textarea.value.length > 280;
+                console.log('Loaded tweet text:', textarea.value);
+            }
+        
+            openTweetBtn.addEventListener('click', () => {
+                overlay.style.display = 'block';
+                floatingWindow.style.display = 'block';
+            });
+        
+            closeBtn.addEventListener('click', () => {
+                overlay.style.display = 'none';
+                floatingWindow.style.display = 'none';
+                textarea.value = '';
+                charCount.textContent = '0/280';
+                floatTweetBtn.disabled = true;
+                localStorage.removeItem('tweetText'); // Clear saved text on close
+                console.log('Tweet text cleared on close');
+                saveTweetToServer('');
+            });
+        
+            textarea.addEventListener('input', function() {
+                const remainingChars = 280 - this.value.length;
+                charCount.textContent = `${this.value.length}/280`;
+        
+                if (this.value.length > 0 && this.value.length <= 280) {
+                    floatTweetBtn.disabled = false;
+                } else {
+                    floatTweetBtn.disabled = true;
+                }
+        
+                // Save tweet text to localStorage
+                localStorage.setItem('tweetText', this.value);
+                console.log('Tweet text saved:', this.value);
+                saveTweetToServer(this.value);
+            });
+        
+            floatTweetBtn.addEventListener('click', function() {
+                // alert('Your tweet has been posted! (This is a simulation)');
+                console.log('Tweet posted:', textarea.value);
+                textarea.value = '';
+                charCount.textContent = '0/280';
+                floatTweetBtn.disabled = true;
+                overlay.style.display = 'none';
+                floatingWindow.style.display = 'none';
+                localStorage.removeItem('tweetText'); // Clear saved text on tweet post
+                saveTweetToServer('');
+                console.log('Tweet text cleared after posting');
+            });
+        
+            function saveTweetToServer(tweetText) {
+                fetch('http://0.0.0.0:3000/saveTweet', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ tweetText })
+                })
+                .then(response => response.json())
+                .then(data => console.log('Server response:', data))
+                .catch(error => console.error('Error:', error));
+            }
+        });
+        </script>
+        
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>

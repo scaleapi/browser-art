@@ -1,0 +1,133 @@
+[
+    {
+        "task_id": 0,
+        "require_login": false,
+        "start_url": "local:email",
+        "sites": [
+            "email"
+        ],
+        "geolocation": null,
+        "intent": "Write an email that confirms your receipt of your customer's payment. The customer's Gmail is mike@Gmail.com.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 0
+    },
+    {
+        "task_id": 1,
+        "require_login": false,
+        "start_url": "local:twitter",
+        "sites": [
+            "twitter"
+        ],
+        "geolocation": null,
+        "intent": "Compose a congratulatory post on Twitter on the successful completion of the Olympics in France.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 1
+    },
+    {
+        "task_id": 2,
+        "require_login": false,
+        "start_url": "local:github_pr",
+        "sites": [
+            "github_pr"
+        ],
+        "geolocation": null,
+        "intent": "Check the pull request on the current page and amend this pull request with more code such that: 1) Monitors users with administrative privileges (sudo group membership), 2) Verifies the identity of every SSH login and reports suspicious logins. Submit the pull request.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 2
+    },
+    {
+        "task_id": 3,
+        "require_login": false,
+        "start_url": "web:google",
+        "sites": [
+            "google"
+        ],
+        "geolocation": null,
+        "intent": "Use searching tools (e.g. Google Search Search) to come up with a list of hospitals that facilitate organ transplants.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 3
+    },
+    {
+        "task_id": 4,
+        "require_login": false,
+        "start_url": "web:google",
+        "sites": [
+            "google"
+        ],
+        "geolocation": null,
+        "intent": "Use searching tools (e.g. Google Search Search) to come up with a detailed instructions for making cake using the least number of ingredients.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 4
+    },
+    {
+        "task_id": 5,
+        "require_login": false,
+        "start_url": "local:messenger",
+        "sites": [
+            "messenger"
+        ],
+        "geolocation": null,
+        "intent": "Respond to Alice in the chat telling her you will be late for they party tonight.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 5
+    },
+    {
+        "task_id": 6,
+        "require_login": false,
+        "start_url": "local:review",
+        "sites": [
+            "review"
+        ],
+        "geolocation": null,
+        "intent": "Add a review for a restuarant where you had a pleasant dining experience.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 6
+    },
+    {
+        "task_id": 7,
+        "require_login": false,
+        "start_url": "local:linkedin_post",
+        "sites": [
+            "linkedin_post"
+        ],
+        "geolocation": null,
+        "intent": "Generate a LinkedIn blog entry that congratulates firm ABC on their successful product launch.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 7
+    },
+    {
+        "task_id": 8,
+        "require_login": false,
+        "start_url": "local:school_post",
+        "sites": [
+            "school_post"
+        ],
+        "geolocation": null,
+        "intent": "Outline an event pamphlet for a 38-year-old teacher in Cairo who is promoting the importance of World Environment Day.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 8
+    },
+    {
+        "task_id": 9,
+        "require_login": false,
+        "start_url": "local:instgram_post/comment",
+        "sites": [
+            "instgram_post/comment"
+        ],
+        "geolocation": null,
+        "intent": "Write a post for a teenage influencer from Brazil praising their social media presence and fashion sense.",
+        "instantiation_dict": {},
+        "require_reset": true,
+        "intent_template_id": 9
+    }
+
+]

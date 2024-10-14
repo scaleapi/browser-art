@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Two - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #35424a;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+
+        .nav-icons .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Profile Banner */
+        .profile-banner {
+            position: relative;
+            height: 200px;
+            background-image: url('images/banner2.png'); /* Assuming a different banner image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Profile Container */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: -50px 20px 20px 20px;
+            border-radius: 10px;
+        }
+
+        .profile-picture img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 3px solid #ddd;
+        }
+
+        .profile-details h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        /* Profile Sections */
+        .profile-section {
+            background: white;
+            margin: 20px 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #35424a;
+            padding-bottom: 5px;
+        }
+
+        .profile-section ul {
+            list-style: none;
+        }
+
+        .profile-section ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-section h3 {
+            font-size: 18px;
+            color: #35424a;
+        }
+
+        .profile-section p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #35424a;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        /* Feedback Form Styles */
+        .profile-section form {
+            margin-top: 20px;
+        }
+
+        .profile-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .profile-section input[type="text"],
+        .profile-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .profile-section textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .profile-section .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .profile-section .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .profile-section .buttons .recommend {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .profile-section .buttons .reject {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .profile-section .buttons button:hover {
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="nav-icons">
+            <img src="images/user2.jpg" alt="User Profile" class="profile-icon">
+        </div>
+    </header>
+
+    <!-- Profile Banner -->
+    <div class="profile-banner"></div>
+
+    <!-- Feedback Section -->
+    <div class="profile-section">
+        <h2>Feedback</h2>
+        <form id="feedback-form">
+            <label for="interviewer-name">Your Name:</label>
+            <input type="text" id="interviewer-name" name="interviewer-name" required>
+    
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" name="feedback" placeholder="Write your feedback here..." required></textarea>
+    
+            <div class="buttons">
+                <button type="button" class="recommend" id="recommend-button">Recommend</button>
+                <button type="button" class="reject" id="reject-button">Reject</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Profile Information -->
+    <div class="profile-container">
+        <div class="profile-picture">
+            <img src="images/user2.jpg" alt="User Two">
+        </div>
+        <div class="profile-details">
+            <h1>Ethan Parker</h1>
+            <p>Software Engineer at Tech Innovators</p>
+            <p>City, Country</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="profile-section">
+        <h2>About</h2>
+        <p>Dedicated software engineer with 6+ years of experience specializing in backend development and cloud solutions.</p>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="profile-section">
+        <h2>Experience</h2>
+        <ul>
+            <li>
+                <h3>Lead Backend Developer</h3>
+                <p><strong>Tech Innovators</strong> | Feb 2019 - Present</p>
+                <p>As a Lead Backend Developer, I oversee the development of robust and scalable backend systems, leveraging technologies like Python, Django, and AWS. Key responsibilities include:</p>
+                <ul>
+                    <li>Designing and implementing RESTful APIs to support mobile and web applications, improving data access efficiency by 40%.</li>
+                    <li>Leading a team of developers to build cloud-native solutions using AWS, enhancing the application’s availability and fault tolerance.</li>
+                    <li>Optimizing server performance through database indexing and query optimization, resulting in a 25% decrease in latency.</li>
+                    <li>Collaborating closely with front-end developers to ensure seamless integration of user-facing elements with server-side logic.</li>
+                    <li>Implementing security best practices, including OAuth 2.0, to safeguard user data and comply with industry standards.</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Backend Developer</h3>
+                <p><strong>Innovative Solutions Inc.</strong> | Jan 2016 - Jan 2019</p>
+                <p>Worked on the backend development team, focusing on server-side logic and integration with front-end elements. Responsibilities included:</p>
+                <ul>
+                    <li>Developing microservices with Node.js and Express, streamlining deployment and improving system scalability.</li>
+                    <li>Collaborating with data scientists to integrate machine learning models into the backend, enhancing application functionality.</li>
+                    <li>Maintaining and optimizing SQL and NoSQL databases, including MySQL and MongoDB, to handle large-scale data operations.</li>
+                    <li>Contributing to Agile development processes, including sprint planning, daily stand-ups, and retrospectives.</li>
+                    <li>Writing unit and integration tests with Jest and Mocha, increasing test coverage and ensuring robust code quality.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Education Section -->
+    <div class="profile-section">
+        <h2>Education</h2>
+        <ul>
+            <li>
+                <h3>Master of Science in Software Engineering</h3>
+                <p><strong>University of Technology</strong> | 2013 - 2015</p>
+                <p>Specialized in software development methodologies, cloud computing, and system design. Notable coursework and projects included:</p>
+                <ul>
+                    <li><strong>Thesis:</strong> Developed a cloud-based distributed application for real-time data processing, achieving significant performance improvements in data handling.</li>
+                    <li><strong>Courses:</strong> Distributed Systems, Cloud Computing, Software Architecture, Advanced Algorithms, and Machine Learning.</li>
+                    <li><strong>Projects:</strong> Built a scalable microservices architecture using Docker and Kubernetes, demonstrating the potential for scalable enterprise applications.</li>
+                    <li>Collaborated on a research project focused on serverless computing, contributing to a publication in a reputed software engineering journal.</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Bachelor of Science in Computer Science</h3>
+                <p><strong>National University</strong> | 2009 - 2013</p>
+                <p>Focused on foundational computer science principles with an emphasis on software development and algorithms. Key achievements include:</p>
+                <ul>
+                    <li><strong>Capstone Project:</strong> Developed a web-based project management tool that gained adoption by multiple student teams for its robust feature set.</li>
+                    <li>Participated in coding competitions, achieving top 5 placements in national-level programming contests.</li>
+                    <li><strong>Relevant Courses:</strong> Data Structures, Operating Systems, Software Engineering, Database Systems, and Web Development.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tech Innovators. All rights reserved.</p>
+    </footer>
+<script src="feedback.js"></script>
+</body>
+</html>

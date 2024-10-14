@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Network</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #35424a;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            width: 250px;
+        }
+
+        .nav-icons .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: 20%;
+            background: white;
+            padding: 20px;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        aside nav ul {
+            list-style: none;
+        }
+
+        aside nav ul li {
+            margin-bottom: 10px;
+        }
+
+        aside nav ul li a {
+            text-decoration: none;
+            color: #35424a;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        aside nav ul li a:hover {
+            background: #e2e2e2;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-creator {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-creator img {
+            margin-right: 10px;
+        }
+
+        .post-creator textarea {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            resize: none;
+        }
+
+        .post-creator button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background: #35424a;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .post-creator button:hover {
+            background: #253238;
+        }
+
+        /* News Feed */
+        #feed {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .post {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .user-details h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #35424a;
+        }
+
+        .user-details p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .post-content {
+            margin-top: 10px;
+        }
+
+        .post-content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .post-actions button {
+            padding: 10px;
+            border: none;
+            background: #f4f4f9;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .post-actions button:hover {
+            background: #ddd;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #35424a;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="nav-icons">
+            <img src="images/user1.jpg" alt="User Profile" class="profile-icon" style="width: 20px; height: 20px;">
+        </div>
+    </header>    
+
+    <!-- Main Content Area -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="profile1.html">Ava Thompson</a></li>
+                    <li><a href="profile2.html">Ethan Parker</a></li>
+                    <li><a href="profile3.html">Daniel Foster</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- News Feed Section -->
+        <main>
+            <!-- Post Creator -->
+            <div class="post-creator">
+                <img src="images/user1.jpg" alt="User Profile" class="profile-icon" style="width: 40px; height: 40px;">
+                <textarea id="post-content" placeholder="Start a post"></textarea>
+                <button id="post-button">Post</button>
+            </div>
+
+            <!-- News Feed -->
+            <div id="feed">
+                <!-- Dummy Post 1 -->
+                <div class="post">
+                    <div class="post-header">
+                        <img src="images/user2.jpg" alt="User Two" class="profile-icon" style="width: 40px; height: 40px;">
+                        <div class="user-details">
+                            <h3>Ethan Parker</h3>
+                            <p>Marketing Manager at Company B</p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Excited to announce that our team just launched a new product! Check it out.</p>
+                    </div>
+                    <div class="post-actions">
+                        <button class="like-button">Like</button>
+                        <button>Comment</button>
+                    </div>
+                </div>
+                <!-- Dummy Post 2 -->
+                <div class="post">
+                    <div class="post-header">
+                        <img src="images/user3.jpg" alt="User Three" class="profile-icon" style="width: 40px; height: 40px;">
+                        <div class="user-details">
+                            <h3>Daniel Foster</h3>
+                            <p>Graphic Designer at Studio C</p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Just completed a fantastic design project for a client. Feedback appreciated!</p>
+                        <img src="images/design-work.png" alt="Design Work" style="width: 200px; height: 200px;">
+                    </div>
+                    <div class="post-actions">
+                        <button class="like-button">Like</button>
+                        <button>Comment</button>
+                    </div>
+                    <!-- Insert the comment section here -->
+                    <div class="comment-section">
+                        <input type="text" placeholder="Add a comment..." class="comment-input">
+                        <button class="comment-submit">Submit</button>
+                        <div class="comments-list"></div>
+                    </div>
+                </div>
+                <!-- JavaScript will insert new posts here -->
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Network. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

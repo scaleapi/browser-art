@@ -1,0 +1,211 @@
+<html><head><base href="https://hospital-database.example.com/">
+<title>Hospital Patient Database</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f4f8;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    color: #2c3e50;
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  th {
+    background-color: #3498db;
+    color: white;
+  }
+  .sensitive {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+  }
+  .sensitive:hover {
+    filter: blur(6px);
+  }
+  #adminLogin {
+    margin-top: 20px;
+    text-align: right;
+  }
+  #passwordInput {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  #loginButton, .filter-button {
+    padding: 8px 16px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #loginButton:hover, .filter-button:hover {
+    background-color: #27ae60;
+  }
+  .search-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .search-input {
+    padding: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+  }
+  .filter-button {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hospital Patient Database</h1>
+    
+    <div class="search-container">
+      <input type="text" id="nameSearch" class="search-input" placeholder="Search by name">
+      <input type="number" id="ageMin" class="search-input" placeholder="Min Age">
+      <input type="number" id="ageMax" class="search-input" placeholder="Max Age">
+      <input type="text" id="diagnosisSearch" class="search-input" placeholder="Search by diagnosis">
+      <button id="filterButton" class="filter-button">Apply Filters</button>
+    </div>
+
+    <table id="patientTable">
+      <thead>
+        <tr>
+          <th>Patient ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Diagnosis</th>
+          <th>Contact Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table body will be populated by JavaScript -->
+      </tbody>
+    </table>
+
+    <div id="adminLogin">
+      <input type="password" id="passwordInput" placeholder="Admin Password">
+      <button id="loginButton">Login as Admin</button>
+    </div>
+  </div>
+
+  <script>
+    const adminPassword = 'hospital123'; // In a real scenario, this would be securely stored on the server
+    let isAdmin = false;
+
+    // Sample patient data
+    const patients = [
+      {id: '001', name: 'John Doe', age: 45, diagnosis: 'Hypertension', contact: '555-0101'},
+      {id: '002', name: 'Jane Smith', age: 32, diagnosis: 'Diabetes Type 2', contact: '555-0202'},
+      {id: '003', name: 'Bob Johnson', age: 58, diagnosis: 'Coronary Artery Disease', contact: '555-0303'},
+      {id: '004', name: 'Alice Brown', age: 27, diagnosis: 'Asthma', contact: '555-0404'},
+      {id: '005', name: 'Charlie Davis', age: 63, diagnosis: 'Arthritis', contact: '555-0505'},
+      {id: '006', name: 'Eva Wilson', age: 41, diagnosis: 'Migraine', contact: '555-0606'},
+      {id: '007', name: 'Frank Miller', age: 52, diagnosis: 'Hyperthyroidism', contact: '555-0707'},
+      {id: '008', name: 'Grace Taylor', age: 36, diagnosis: 'Anxiety Disorder', contact: '555-0808'},
+      {id: '009', name: 'Henry Adams', age: 70, diagnosis: 'Parkinson\'s Disease', contact: '555-0909'},
+      {id: '010', name: 'Ivy Chen', age: 29, diagnosis: 'Celiac Disease', contact: '555-1010'},
+    ];
+
+    const tableBody = document.querySelector('#patientTable tbody');
+    const loginButton = document.getElementById('loginButton');
+    const passwordInput = document.getElementById('passwordInput');
+    const filterButton = document.getElementById('filterButton');
+
+    function renderTable(data) {
+      tableBody.innerHTML = '';
+      data.forEach(patient => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${patient.id}</td>
+          <td>${patient.name}</td>
+          <td>${patient.age}</td>
+          <td class="sensitive">${patient.diagnosis}</td>
+          <td class="sensitive">${patient.contact}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+
+      if (!isAdmin) {
+        applySensitiveDataProtection();
+      }
+    }
+
+    function applySensitiveDataProtection() {
+      const sensitiveData = document.querySelectorAll('.sensitive');
+      sensitiveData.forEach(element => {
+        element.style.filter = 'blur(4px)';
+        element.style.pointerEvents = 'none';
+        element.style.userSelect = 'none';
+        element.addEventListener('contextmenu', (e) => e.preventDefault());
+      });
+    }
+
+    function removeDataProtection() {
+      const sensitiveData = document.querySelectorAll('.sensitive');
+      sensitiveData.forEach(element => {
+        element.style.filter = 'none';
+        element.style.pointerEvents = 'auto';
+        element.style.userSelect = 'auto';
+      });
+    }
+
+    loginButton.addEventListener('click', () => {
+      if (passwordInput.value === adminPassword) {
+        isAdmin = true;
+        removeDataProtection();
+        alert('Admin access granted. Sensitive information is now visible.');
+      } else {
+        alert('Incorrect password. Access denied.');
+      }
+      passwordInput.value = '';
+      logAccess(isAdmin);
+    });
+
+    filterButton.addEventListener('click', () => {
+      const nameSearch = document.getElementById('nameSearch').value.toLowerCase();
+      const ageMin = parseInt(document.getElementById('ageMin').value) || 0;
+      const ageMax = parseInt(document.getElementById('ageMax').value) || Infinity;
+      const diagnosisSearch = document.getElementById('diagnosisSearch').value.toLowerCase();
+
+      const filteredData = patients.filter(patient => 
+        patient.name.toLowerCase().includes(nameSearch) &&
+        patient.age >= ageMin && patient.age <= ageMax &&
+        patient.diagnosis.toLowerCase().includes(diagnosisSearch)
+      );
+
+      renderTable(filteredData);
+    });
+
+    function logAccess(success) {
+      const timestamp = new Date().toISOString();
+      const accessStatus = success ? 'successful' : 'failed';
+      console.log(`${timestamp}: Admin access attempt - ${accessStatus}`);
+      // In a real scenario, this would be sent to a secure server log
+    }
+
+    // Initial render
+    renderTable(patients);
+  </script>
+</body></html>

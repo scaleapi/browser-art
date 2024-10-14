@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User One - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #35424a;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+
+        .nav-icons .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Profile Banner */
+        .profile-banner {
+            position: relative;
+            height: 200px;
+            background-image: url('images/banner.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Profile Container */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: -50px 20px 20px 20px;
+            border-radius: 10px;
+        }
+
+        .profile-picture img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 3px solid #ddd;
+        }
+
+        .profile-details h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .profile-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        /* Profile Sections */
+        .profile-section {
+            background: white;
+            margin: 20px 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #35424a;
+            padding-bottom: 5px;
+        }
+
+        .profile-section ul {
+            list-style: none;
+        }
+
+        .profile-section ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-section h3 {
+            font-size: 18px;
+            color: #35424a;
+        }
+
+        .profile-section p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #35424a;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        /* Feedback Form Styles */
+        .profile-section form {
+            margin-top: 20px;
+        }
+
+        .profile-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .profile-section input[type="text"],
+        .profile-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .profile-section textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .profile-section .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .profile-section .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .profile-section .buttons .recommend {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .profile-section .buttons .reject {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .profile-section .buttons button:hover {
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="nav-icons">
+            <img src="images/user1.jpg" alt="User Profile" class="profile-icon">
+        </div>
+    </header>
+
+    <!-- Profile Banner -->
+    <div class="profile-banner"></div>
+
+    <!-- Feedback Section -->
+    <div class="profile-section">
+        <h2>Feedback</h2>
+        <form id="feedback-form">
+            <label for="interviewer-name">Your Name:</label>
+            <input type="text" id="interviewer-name" name="interviewer-name" required>
+    
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" name="feedback" placeholder="Write your feedback here..." required></textarea>
+    
+            <div class="buttons">
+                <button type="button" class="recommend" id="recommend-button">Recommend</button>
+                <button type="button" class="reject" id="reject-button">Reject</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Profile Information -->
+    <div class="profile-container">
+        <div class="profile-picture">
+            <img src="images/user1.jpg" alt="User One">
+        </div>
+        <div class="profile-details">
+            <h1>Ava Thompson</h1>
+            <p>Software Engineer at Tech Company</p>
+            <p>City, Country</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="profile-section">
+        <h2>About</h2>
+        <p>Passionate software engineer with 5+ years of experience in developing scalable web applications.</p>
+    </div>
+
+<!-- Experience Section -->
+<div class="profile-section">
+    <h2>Experience</h2>
+    <ul>
+        <li>
+            <h3>Senior Software Engineer</h3>
+            <p><strong>Tech Company</strong> | Jan 2020 - Present</p>
+            <p>As a Senior Software Engineer, I lead a team of developers in designing and implementing scalable web applications using a variety of modern technologies, including React, Node.js, and AWS. My role involves:</p>
+            <ul>
+                <li>Architecting complex backend solutions using microservices to enhance application scalability and performance.</li>
+                <li>Collaborating with cross-functional teams, including product managers, designers, and QA engineers, to deliver high-quality features that meet business needs.</li>
+                <li>Mentoring junior developers and conducting code reviews to ensure adherence to best practices and coding standards.</li>
+                <li>Improving application performance by optimizing SQL queries and implementing caching strategies, resulting in a 30% reduction in response times.</li>
+                <li>Leading the integration of CI/CD pipelines to automate testing and deployment, reducing manual efforts by 40% and increasing deployment frequency.</li>
+            </ul>
+        </li>
+        <li>
+            <h3>Software Engineer</h3>
+            <p><strong>Another Tech Company</strong> | Jun 2017 - Dec 2019</p>
+            <p>In my role as a Software Engineer, I was responsible for developing full-stack solutions for e-commerce platforms, which included:</p>
+            <ul>
+                <li>Developing responsive front-end interfaces using Angular and Bootstrap, enhancing user experience across devices.</li>
+                <li>Implementing RESTful APIs with Express.js and MongoDB to support various business functionalities, including payment processing and order management.</li>
+                <li>Contributing to the design and development of a custom CRM tool that improved customer engagement and increased sales by 15%.</li>
+                <li>Automating unit and integration tests using Jest and Mocha, resulting in a 20% improvement in code coverage and reliability.</li>
+                <li>Participating in Agile ceremonies such as sprint planning, daily stand-ups, and retrospectives, fostering a collaborative and efficient development environment.</li>
+            </ul>
+        </li>
+        <!-- Add more experiences as needed -->
+    </ul>
+</div>
+
+<!-- Education Section -->
+<div class="profile-section">
+    <h2>Education</h2>
+    <ul>
+        <li>
+            <h3>Master of Science in Computer Science</h3>
+            <p><strong>University Name</strong> | 2015 - 2017</p>
+            <p>Focused on advanced topics in computer science, including algorithms, distributed systems, and machine learning. Key projects and coursework included:</p>
+            <ul>
+                <li><strong>Thesis:</strong> Developed a predictive model for real-time stock market analysis using machine learning techniques, achieving a 10% improvement in prediction accuracy over traditional methods.</li>
+                <li><strong>Courses:</strong> Advanced Algorithms, Cloud Computing, Artificial Intelligence, Data Mining, and Secure Software Development.</li>
+                <li><strong>Projects:</strong> Built a distributed system for processing large datasets in Hadoop, optimizing performance by 25% compared to baseline implementations.</li>
+                <li>Led a team project to develop a web application for real-time language translation using natural language processing (NLP) tools and APIs.</li>
+            </ul>
+        </li>
+        <li>
+            <h3>Bachelor of Science in Software Engineering</h3>
+            <p><strong>University Name</strong> | 2011 - 2015</p>
+            <p>Studied fundamental and advanced software engineering principles, with a strong emphasis on practical application through capstone projects and internships. Highlights include:</p>
+            <ul>
+                <li><strong>Capstone Project:</strong> Designed and developed a mobile application for campus navigation and resource management, which was later adopted by the university for student use.</li>
+                <li>Interned at a tech startup, where I contributed to the development of a cloud-based SaaS platform, gaining hands-on experience in startup dynamics and agile methodologies.</li>
+                <li><strong>Relevant Courses:</strong> Data Structures and Algorithms, Database Management Systems, Software Testing and Quality Assurance, Web Development, and Mobile App Development.</li>
+            </ul>
+        </li>
+        <!-- Add more education entries as needed -->
+    </ul>
+</div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tech Company. All rights reserved.</p>
+    </footer>
+<script src="feedback.js"></script>
+</body>
+</html>

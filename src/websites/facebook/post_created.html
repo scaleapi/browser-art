@@ -1,0 +1,289 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #1877f2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            height: 56px;
+        }
+        .logo {
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .search-bar {
+            background-color: #f0f2f5;
+            border-radius: 50px;
+            padding: 8px 16px;
+            margin-left: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .search-icon {
+            color: #65676b;
+            margin-right: 8px;
+        }
+        .search-input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 15px;
+        }
+        .nav-icons {
+            display: flex;
+            margin-left: auto;
+        }
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1877f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 30px;
+            line-height: 1;
+            text-align: center;
+        }
+        .nav-icon-fa {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1877f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 30px;
+            line-height: 1;
+            text-align: center;
+            margin-top: 4px;
+        }
+        .container {
+            max-width: 680px;
+            margin: 76px auto 20px;
+        }
+        .post {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+        .post-header {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+        }
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .post-info {
+            flex-grow: 1;
+        }
+        .post-author {
+            font-weight: bold;
+            color: #050505;
+        }
+        .post-time {
+            color: #65676b;
+            font-size: 13px;
+        }
+        .post-content {
+            padding: 0 16px 16px;
+        }
+        .post-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 16px;
+            border-top: 1px solid #e4e6eb;
+        }
+        .action-button {
+            background: none;
+            border: none;
+            color: #65676b;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px;
+            cursor: pointer;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .action-icon {
+            margin-right: 4px;
+        }
+        .notification {
+            position: fixed;
+            top: 76px;
+            right: 404px;
+            background-color: #e7f3fe;
+            color: #31708f;
+            padding: 10px;
+            border: 1px solid #b3d4fc;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">f</a>
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search Facebook" class="search-input">
+        </div>
+        <div class="nav-icons">
+            <img src="profile_pic.jpg" class="nav-icon">
+            <i class="fas fa-comment nav-icon-fa"></i>
+            <i class="fas fa-bell nav-icon-fa"></i>
+            <i class="fas fa-chevron-down nav-icon-fa"></i>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="post" id="user-post"></div>
+        <div class="notification" id="notification">Post created!</div>
+
+        <!-- Static Posts -->
+        <div class="post">
+            <div class="post-header">
+                <img src="marathon_pfp.webp" class="post-avatar">
+                <div class="post-info">
+                    <div class="post-author">Sarah Johnson</div>
+                    <div class="post-time">2 hours ago · 🌍</div>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Just finished my first marathon! 🏃‍♀️🏅 Feeling accomplished and grateful for all the support. #RunningGoals</p>
+                <img src="marathon.png" class="post-image">
+            </div>
+            <div class="post-actions">
+                <button class="action-button"><span class="action-icon">👍</span> Like</button>
+                <button class="action-button"><span class="action-icon">💬</span> Comment</button>
+                <button class="action-button"><span class="action-icon">➡️</span> Share</button>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <img src="sunset_pfp.webp" class="post-avatar">
+                <div class="post-info">
+                    <div class="post-author">Yuntao Ma</div>
+                    <div class="post-time">3 hours ago · 👥</div>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Things like this make you appreciate how beautiful life is... </p>
+                <img src="sunset.png" class="post-image">
+            </div>
+            <div class="post-actions">
+                <button class="action-button"><span class="action-icon">👍</span> Like</button>
+                <button class="action-button"><span class="action-icon">💬</span> Comment</button>
+                <button class="action-button"><span class="action-icon">➡️</span> Share</button>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <img src="cat_pfp.webp" class="post-avatar">
+                <div class="post-info">
+                    <div class="post-author">Ranira Targarian</div>
+                    <div class="post-time">5 hours ago · 🔒</div>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>Everyone meet my new baby Muffin #AdoptDon'tShop</p>
+                <img src="cat.png" class="post-image">
+            </div>
+            <div class="post-actions">
+                <button class="action-button"><span class="action-icon">👍</span> Like</button>
+                <button class="action-button"><span class="action-icon">💬</span> Comment</button>
+                <button class="action-button"><span class="action-icon">➡️</span> Share</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const postContent = urlParams.get('post');
+        const privacySetting = urlParams.get('privacy') || 'Public'; // Default to Public if not set
+
+        let privacyEmoji;
+        switch (privacySetting) {
+            case 'Friends':
+                privacyEmoji = '👥'; // Friends emoji
+                break;
+            case 'Only Me':
+                privacyEmoji = '🔒'; // Only Me emoji
+                break;
+            default:
+                privacyEmoji = '🌍'; // Public emoji
+                break;
+        }
+
+        if (postContent) {
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.innerHTML = `
+                <div class="post-header">
+                    <img src="profile_pic.jpg" class="post-avatar">
+                    <div class="post-info">
+                        <div class="post-author">Claudius Geminus</div>
+                        <div class="post-time">Just now · ${privacyEmoji}</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>${postContent}</p>
+                </div>
+                <div class="post-actions">
+                    <button class="action-button"><span class="action-icon">👍</span> Like</button>
+                    <button class="action-button"><span class="action-icon">💬</span> Comment</button>
+                    <button class="action-button"><span class="action-icon">➡️</span> Share</button>
+                </div>
+            `;
+            document.getElementById('user-post').appendChild(postElement);
+            document.getElementById('notification').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('notification').style.display = 'none';
+            }, 3000);
+        }
+    });
+    </script>
+</body>
+</html>

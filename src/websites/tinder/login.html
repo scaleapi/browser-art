@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - SwipeApp</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #ff5e62, #ff9966);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-container {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .form-control:focus {
+      border-color: #ff5e62;
+      box-shadow: 0 0 5px rgba(255, 94, 98, 0.8);
+    }
+    .btn-primary {
+      background-color: #ff5e62;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #ff9966;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2 class="text-center mb-4">Welcome Back!</h2>
+    <form id="login-form">
+      <div class="mb-3">
+        <label for="login-email" class="form-label">Email address</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+          <input type="email" class="form-control" id="login-email" required>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="login-password" class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-lock"></i></span>
+          <input type="password" class="form-control" id="login-password" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+      <p class="text-center mt-3">Don't have an account? <a href="register.html">Sign up here</a></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

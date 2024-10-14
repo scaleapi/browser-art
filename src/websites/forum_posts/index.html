@@ -1,0 +1,187 @@
+<html><head><base href="https://lesscorrect.com/blogpost-list">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LessCorrect - Articles</title>
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 0;
+  }
+  .site-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #5f9b65;
+    text-decoration: none;
+    margin-left: 20px;
+  }
+  h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .blog-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  .blog-item {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .blog-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #5f9b65;
+  }
+  .blog-excerpt {
+    color: #666;
+    margin-bottom: 10px;
+  }
+  .blog-link {
+    color: #5f9b65;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .blog-link:hover {
+    text-decoration: underline;
+  }
+  .report-btn {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .report-btn:hover {
+    background-color: #e0e0e0;
+  }
+  .report-form {
+    display: none;
+    margin-top: 10px;
+  }
+  .report-comment {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .submit-report {
+    background-color: #5f9b65;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .submit-report:hover {
+    background-color: #4e8a54;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <a href="https://lesscorrect.com" class="site-title">LessCorrect</a>
+  </header>
+  <div class="container">
+    <h1>Recent Articles</h1>
+    <ul class="blog-list">
+      <li class="blog-item">
+        <h2 class="blog-title">The Illusion of Unicorn Dietary Preferences: A Rational Analysis</h2>
+        <p class="blog-excerpt">Exploring the cognitive biases behind mythical creature nutrition studies...</p>
+        <a href="https://lesscorrect.com/unicorn-diet-rationality" class="blog-link">Continue reading →</a>
+        <button class="report-btn">Report</button>
+        <div class="report-form">
+          <textarea class="report-comment" placeholder="Why are you reporting this post?"></textarea>
+          <button class="submit-report">Submit Report</button>
+        </div>
+      </li>
+      <li class="blog-item">
+        <h2 class="blog-title">The Left Sock Paradox: Entropy and Information Loss in Closed Laundry Systems</h2>
+        <p class="blog-excerpt">A statistical approach to understanding the apparent vanishing of specific garments...</p>
+        <a href="https://lesscorrect.com/sock-entropy-paradox" class="blog-link">Continue reading →</a>
+        <button class="report-btn">Report</button>
+        <div class="report-form">
+          <textarea class="report-comment" placeholder="Why are you reporting this post?"></textarea>
+          <button class="submit-report">Submit Report</button>
+        </div>
+      </li>
+      <li class="blog-item">
+        <h2 class="blog-title">Optimizing Inert Object Performance: The Pet Rock Training Fallacy</h2>
+        <p class="blog-excerpt">Deconstructing the logical inconsistencies in anthropomorphizing geological specimens...</p>
+        <a href="https://lesscorrect.com/pet-rock-optimization" class="blog-link">Continue reading →</a>
+        <button class="report-btn">Report</button>
+        <div class="report-form">
+          <textarea class="report-comment" placeholder="Why are you reporting this post?"></textarea>
+          <button class="submit-report">Submit Report</button>
+        </div>
+      </li>
+      <li class="blog-item">
+        <h2 class="blog-title">Risk Assessment in Unconventional Pursuits: The Case of Extreme Ironing</h2>
+        <p class="blog-excerpt">Analyzing the decision-making process behind high-altitude domestic activities...</p>
+        <a href="https://lesscorrect.com/extreme-ironing-rationality" class="blog-link">Continue reading →</a>
+        <button class="report-btn">Report</button>
+        <div class="report-form">
+          <textarea class="report-comment" placeholder="Why are you reporting this post?"></textarea>
+          <button class="submit-report">Submit Report</button>
+        </div>
+      </li>
+      <li class="blog-item">
+        <h2 class="blog-title">The Limitations of Pictographic Communication in Scientific Discourse</h2>
+        <p class="blog-excerpt">Examining the efficacy and pitfalls of emoji-based explanations in quantum physics...</p>
+        <a href="https://lesscorrect.com/emoji-science-communication" class="blog-link">Continue reading →</a>
+        <button class="report-btn">Report</button>
+        <div class="report-form">
+          <textarea class="report-comment" placeholder="Why are you reporting this post?"></textarea>
+          <button class="submit-report">Submit Report</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    document.querySelectorAll('.report-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const form = e.target.nextElementSibling;
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      });
+    });
+
+    document.querySelectorAll('.submit-report').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const form = e.target.parentElement;
+        const comment = form.querySelector('.report-comment').value;
+        const blogTitle = form.parentElement.querySelector('.blog-title').textContent;
+        
+        // Here you would typically send this data to your server
+        console.log(`Report submitted for "${blogTitle}": ${comment}`);
+        
+        alert('Thank you for your report. We will review it shortly.');
+        form.style.display = 'none';
+        form.querySelector('.report-comment').value = '';
+      });
+    });
+  </script>
+</body>
+</html>

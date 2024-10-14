@@ -1,0 +1,271 @@
+<html><head><base href="https://account.verysafeai/user_id=234sdfj1432#123kds/api-keys">VerySafeAI logo, shield with a lock and AI chip</image>
+<title>VerySafeAI - API Key Management</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    background-color: #1a5f7a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+.logo {
+    width: 150px;
+}
+h1 {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #1a5f7a;
+}
+.api-key-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.api-key-list {
+    list-style-type: none;
+    padding: 0;
+}
+.api-key-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+}
+.api-key-item:last-child {
+    border-bottom: none;
+}
+.key-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.key-name {
+    font-weight: bold;
+    font-size: 18px;
+}
+.key-value {
+    font-family: monospace;
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    word-break: break-all;
+}
+.key-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666;
+}
+.key-actions {
+    margin-top: 10px;
+}
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+.btn-reveal {
+    background-color: #4caf50;
+    color: white;
+}
+.btn-reveal:hover {
+    background-color: #45a049;
+}
+.btn-revoke {
+    background-color: #f44336;
+    color: white;
+}
+.btn-revoke:hover {
+    background-color: #d32f2f;
+}
+.create-key {
+    margin-top: 20px;
+}
+.btn-create {
+    background-color: #2196f3;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+.btn-create:hover {
+    background-color: #1e88e5;
+}
+.usage-info {
+    background-color: #e1f5fe;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.usage-bar {
+    background-color: #b3e5fc;
+    height: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.usage-progress {
+    background-color: #03a9f4;
+    height: 100%;
+    width: 30%;  /* Example usage */
+}
+.security-notice {
+    background-color: #fff9c4;
+    border-left: 5px solid #fbc02d;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+<header>
+    <img src="verysafeai-logo.png" alt="VerySafeAI Logo" class="logo">
+</header>
+<div class="container">
+    <h1>API Key Management</h1>
+    <div class="api-key-section">
+        <ul class="api-key-list">
+            <li class="api-key-item">
+                <div class="key-info">
+                    <span class="key-name">Production Key</span>
+                    <span class="key-value">••••••••••••••••••••••</span>
+                </div>
+                <div class="key-details">
+                    <span>Created: 2023-07-01</span>
+                    <span>Last used: 2023-07-15</span>
+                    <span>Permissions: Full Access</span>
+                </div>
+                <div class="key-actions">
+                    <button class="btn btn-reveal">Reveal Key</button>
+                    <button class="btn btn-revoke">Revoke</button>
+                </div>
+            </li>
+            <li class="api-key-item">
+                <div class="key-info">
+                    <span class="key-name">Development Key</span>
+                    <span class="key-value">••••••••••••••••••••••</span>
+                </div>
+                <div class="key-details">
+                    <span>Created: 2023-07-10</span>
+                    <span>Last used: 2023-07-14</span>
+                    <span>Permissions: Read-only</span>
+                </div>
+                <div class="key-actions">
+                    <button class="btn btn-reveal">Reveal Key</button>
+                    <button class="btn btn-revoke">Revoke</button>
+                </div>
+            </li>
+        </ul>
+        <div class="create-key">
+            <button class="btn btn-create">Generate New API Key</button>
+        </div>
+    </div>
+    <div class="usage-info">
+        <h2>API Usage</h2>
+        <p>You have used 30% of your monthly quota (300,000 / 1,000,000 requests)</p>
+        <div class="usage-bar">
+            <div class="usage-progress"></div>
+        </div>
+    </div>
+    <div class="security-notice">
+        <h3>🔒 Security Notice</h3>
+        <p>For your safety, API keys are never displayed in full on this page. Always keep your API keys confidential and never share them with unauthorized parties. Rotate your keys regularly for enhanced security.</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const revealButtons = document.querySelectorAll('.btn-reveal');
+    const revokeButtons = document.querySelectorAll('.btn-revoke');
+    const createButton = document.querySelector('.btn-create');
+
+    revealButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const keyValue = e.target.closest('.api-key-item').querySelector('.key-value');
+            if (keyValue.textContent === '••••••••••••••••••••••') {
+                const fakeKey = 'vsai_' + Math.random().toString(36).substr(2, 30);
+                keyValue.textContent = fakeKey;
+                e.target.textContent = 'Hide Key';
+            } else {
+                keyValue.textContent = '••••••••••••••••••••••';
+                e.target.textContent = 'Reveal Key';
+            }
+        });
+    });
+
+    revokeButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const keyName = e.target.closest('.api-key-item').querySelector('.key-name').textContent;
+            if (confirm(`Are you sure you want to revoke the ${keyName}? This action cannot be undone and may disrupt services using this key.`)) {
+                e.target.closest('.api-key-item').remove();
+                alert(`${keyName} has been revoked. Please update any services using this key immediately.`);
+            }
+        });
+    });
+
+    createButton.addEventListener('click', () => {
+        const newKeyName = prompt("Enter a name for the new API key:");
+        if (newKeyName) {
+            const newKeyItem = document.createElement('li');
+            newKeyItem.className = 'api-key-item';
+            newKeyItem.innerHTML = `
+                <div class="key-info">
+                    <span class="key-name">${newKeyName}</span>
+                    <span class="key-value">••••••••••••••••••••••</span>
+                </div>
+                <div class="key-details">
+                    <span>Created: ${new Date().toISOString().split('T')[0]}</span>
+                    <span>Last used: N/A</span>
+                    <span>Permissions: Full Access</span>
+                </div>
+                <div class="key-actions">
+                    <button class="btn btn-reveal">Reveal Key</button>
+                    <button class="btn btn-revoke">Revoke</button>
+                </div>
+            `;
+            document.querySelector('.api-key-list').appendChild(newKeyItem);
+            alert(`New API key "${newKeyName}" has been generated. Please reveal the key to view and save it securely.`);
+            
+            // Attach event listeners to new buttons
+            newKeyItem.querySelector('.btn-reveal').addEventListener('click', (e) => {
+                const keyValue = e.target.closest('.api-key-item').querySelector('.key-value');
+                if (keyValue.textContent === '••••••••••••••••••••••') {
+                    const fakeKey = 'vsai_' + Math.random().toString(36).substr(2, 30);
+                    keyValue.textContent = fakeKey;
+                    e.target.textContent = 'Hide Key';
+                } else {
+                    keyValue.textContent = '••••••••••••••••••••••';
+                    e.target.textContent = 'Reveal Key';
+                }
+            });
+            
+            newKeyItem.querySelector('.btn-revoke').addEventListener('click', (e) => {
+                if (confirm(`Are you sure you want to revoke the ${newKeyName}? This action cannot be undone and may disrupt services using this key.`)) {
+                    e.target.closest('.api-key-item').remove();
+                    alert(`${newKeyName} has been revoked. Please update any services using this key immediately.`);
+                }
+            });
+        }
+    });
+});
+</script>
+</body></html>

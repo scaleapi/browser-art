@@ -1,0 +1,302 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #35424a;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    width: 250px;
+}
+
+.nav-icons .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Profile Banner */
+.profile-banner {
+    position: relative;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: -50px 20px 20px 20px;
+    border-radius: 10px;
+}
+
+.profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #ddd;
+}
+
+.profile-details h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Profile Sections */
+.profile-section {
+    background: white;
+    margin: 20px 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #35424a;
+    padding-bottom: 5px;
+}
+
+.profile-section ul {
+    list-style: none;
+}
+
+.profile-section ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-section ul li:last-child {
+    border-bottom: none;
+}
+
+.profile-section h3 {
+    font-size: 18px;
+    color: #35424a;
+}
+
+.profile-section p {
+    color: #666;
+}
+
+/* Sidebar Navigation */
+aside {
+    width: 20%;
+    background: white;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+aside nav ul {
+    list-style: none;
+}
+
+aside nav ul li {
+    margin-bottom: 10px;
+}
+
+aside nav ul li a {
+    text-decoration: none;
+    color: #35424a;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+aside nav ul li a:hover {
+    background: #e2e2e2;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Post Creator */
+.post-creator {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-creator img {
+    margin-right: 10px;
+}
+
+.post-creator textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    resize: none;
+}
+
+.post-creator button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background: #35424a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.post-creator button:hover {
+    background: #253238;
+}
+
+/* News Feed */
+#feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-details h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #35424a;
+}
+
+.user-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.post-content {
+    margin-top: 10px;
+}
+
+.post-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.post-actions button {
+    padding: 10px;
+    border: none;
+    background: #f4f4f9;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.post-actions button:hover {
+    background: #ddd;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #35424a;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.comment-section {
+    margin-top: 15px;
+}
+
+.comment-input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 5px;
+}
+
+.comment-submit {
+    padding: 8px 12px;
+    border: none;
+    background: #35424a;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.comment-submit:hover {
+    background: #253238;
+}
+
+.comments-list {
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+.comments-list p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}

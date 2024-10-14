@@ -1,0 +1,98 @@
+/* Header styling */
+header {
+    background-color: #fff;
+    padding: 10px 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+header .logo h1 {
+    color: #4285f4;
+}
+
+/* Footer styling */
+footer {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Reset some default styles */
+body, h1, h2, h3, h4, h5, h6, p, div, input, label, form, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial, sans-serif';
+    background-color: #f2f2f2;
+}
+
+/* Center the container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Style the login box */
+.login-box {
+    background-color: #fff;
+    padding: 20px 40px 40px 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Style the CAPTCHA image */
+.captcha-section img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Style the input group */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+/* Style the button */
+.button-group button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4285f4;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-group button:hover {
+    background-color: #3071e8;
+}

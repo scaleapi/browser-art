@@ -1,0 +1,222 @@
+<html><head><base href="https://gmail.com/compose=new"><title>Gmail - Compose New Message</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+header {
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+.logo span {
+  font-size: 22px;
+  color: #5f6368;
+}
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+.compose-window {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  width: 100%;
+  max-width: 750px;
+}
+.compose-header {
+  padding: 16px;
+  border-bottom: 1px solid #f1f3f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.compose-title {
+  font-size: 18px;
+  color: #3c4043;
+}
+.compose-actions i {
+  margin-left: 16px;
+  color: #5f6368;
+  cursor: pointer;
+}
+.compose-body {
+  padding: 16px;
+}
+.compose-field {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+.compose-field label {
+  width: 80px;
+  color: #5f6368;
+}
+.compose-field input, .compose-field textarea {
+  flex-grow: 1;
+  border: none;
+  font-size: 14px;
+  padding: 8px;
+}
+.compose-field input:focus, .compose-field textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #1a73e8;
+}
+.compose-buttons {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.send-button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.formatting-options i {
+  margin-right: 16px;
+  color: #5f6368;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">
+      <img src="https://www.gstatic.com/images/branding/product/1x/gmail_2020q4_32dp.png" alt="Gmail logo">
+      <span>Gmail</span>
+    </div>
+  </header>
+  
+  <main>
+    <div class="compose-window">
+      <div class="compose-header">
+        <span class="compose-title">New Message</span>
+        <div class="compose-actions">
+          <i class="fas fa-minus" title="Minimize"></i>
+          <i class="fas fa-expand" title="Full screen"></i>
+          <i class="fas fa-times" title="Close"></i>
+        </div>
+      </div>
+      
+      <div class="compose-body">
+        <div class="compose-field">
+          <label for="to">To</label>
+          <input type="text" id="to" placeholder="Recipients">
+        </div>
+        <div class="compose-field">
+          <label for="cc">Cc</label>
+          <input type="text" id="cc" placeholder="Carbon copy">
+        </div>
+        <div class="compose-field">
+          <label for="bcc">Bcc</label>
+          <input type="text" id="bcc" placeholder="Blind carbon copy">
+        </div>
+        <div class="compose-field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="Subject">
+        </div>
+        <div class="compose-field">
+          <textarea rows="15" placeholder="Compose your message here..."></textarea>
+        </div>
+      </div>
+      
+      <div class="compose-buttons">
+        <button class="send-button">Send</button>
+        <div class="formatting-options">
+          <i class="fas fa-bold" title="Bold"></i>
+          <i class="fas fa-italic" title="Italic"></i>
+          <i class="fas fa-underline" title="Underline"></i>
+          <i class="fas fa-font" title="Font size"></i>
+          <i class="fas fa-paperclip" title="Attach file"></i>
+          <i class="fas fa-link" title="Insert link"></i>
+          <i class="fas fa-smile" title="Insert emoji"></i>
+          <i class="fas fa-image" title="Insert image"></i>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  let emailId = null;
+
+  // Function to send email details to the server
+  function sendEmailDetails() {
+    const to = document.getElementById('to').value;
+    const cc = document.getElementById('cc').value;
+    const bcc = document.getElementById('bcc').value;
+    const subject = document.getElementById('subject').value;
+    const body = document.querySelector('.compose-field textarea').value;
+
+    const emailDetails = {
+      id: emailId,
+      to: to,
+      cc: cc,
+      bcc: bcc,
+      subject: subject,
+      body: body
+    };
+
+    console.log(emailDetails);
+
+    fetch('http://0.0.0.0:3000/saveEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(emailDetails)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Email details saved successfully');
+      if (!emailId) {
+        emailId = data.id; // Save the ID for subsequent updates
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
+  // Add event listeners to input fields
+  document.getElementById('to').addEventListener('input', sendEmailDetails);
+  document.getElementById('cc').addEventListener('input', sendEmailDetails);
+  document.getElementById('bcc').addEventListener('input', sendEmailDetails);
+  document.getElementById('subject').addEventListener('input', sendEmailDetails);
+  document.querySelector('.compose-field textarea').addEventListener('input', sendEmailDetails);
+
+  // Send button click event listener
+  document.querySelector('.send-button').addEventListener('click', function() {
+    // alert('Email is sent!');
+  });
+</script>
+
+</body></html>

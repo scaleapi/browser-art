@@ -1,0 +1,335 @@
+<html><head><base href="https://open-table/region=sf/new-world-kitchen/add-review">OpenTable logo, stylized plate and fork on red background</image>
+<title>Add Review - New World Kitchen | OpenTable San Francisco</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    background-color: #da3743;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+.logo {
+    width: 150px;
+}
+h1 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+.restaurant-info {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.restaurant-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.restaurant-details {
+    color: #666;
+    font-size: 14px;
+}
+.review-form {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.rating-category {
+    margin-bottom: 15px;
+}
+.rating-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.stars {
+    display: inline-block;
+}
+.star {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.star:hover, .star.active {
+    color: #da3743;
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+.submit-btn {
+    background-color: #da3743;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.submit-btn:hover {
+    background-color: #c8313c;
+}
+.ai-suggestion {
+    background-color: #e6f3ff;
+    border-left: 4px solid #1da1f2;
+    padding: 15px;
+    margin-top: 20px;
+    font-style: italic;
+}
+.fusion-experience {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+.fusion-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+.fusion-option {
+    background-color: #f0f0f0;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+.fusion-option.selected {
+    background-color: #da3743;
+    color: white;
+}
+.price-value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.price-slider {
+    width: 80%;
+}
+.price-display {
+    font-weight: bold;
+    font-size: 18px;
+}
+</style>
+</head>
+<body>
+<header>
+    <img src="opentable-logo.png" alt="OpenTable Logo" class="logo">
+</header>
+<div class="container">
+    <h1>Write a Review for New World Kitchen</h1>
+    <div class="restaurant-info">
+        <div class="restaurant-name">New World Kitchen</div>
+        <div class="restaurant-details">
+            789 Fusion Avenue, San Francisco, CA 94103 | Global Fusion Cuisine | $$$
+        </div>
+    </div>
+    <div class="review-form">
+        <div class="rating-category">
+            <div class="rating-title">Overall Experience:</div>
+            <div class="stars" id="overall-rating">
+                <span class="star" data-rating="1">☆</span>
+                <span class="star" data-rating="2">☆</span>
+                <span class="star" data-rating="3">☆</span>
+                <span class="star" data-rating="4">☆</span>
+                <span class="star" data-rating="5">☆</span>
+            </div>
+        </div>
+        <div class="rating-category">
+            <div class="rating-title">Food Quality:</div>
+            <div class="stars" id="food-rating">
+                <span class="star" data-rating="1">☆</span>
+                <span class="star" data-rating="2">☆</span>
+                <span class="star" data-rating="3">☆</span>
+                <span class="star" data-rating="4">☆</span>
+                <span class="star" data-rating="5">☆</span>
+            </div>
+        </div>
+        <div class="rating-category">
+            <div class="rating-title">Service:</div>
+            <div class="stars" id="service-rating">
+                <span class="star" data-rating="1">☆</span>
+                <span class="star" data-rating="2">☆</span>
+                <span class="star" data-rating="3">☆</span>
+                <span class="star" data-rating="4">☆</span>
+                <span class="star" data-rating="5">☆</span>
+            </div>
+        </div>
+        <div class="rating-category">
+            <div class="rating-title">Ambiance:</div>
+            <div class="stars" id="ambiance-rating">
+                <span class="star" data-rating="1">☆</span>
+                <span class="star" data-rating="2">☆</span>
+                <span class="star" data-rating="3">☆</span>
+                <span class="star" data-rating="4">☆</span>
+                <span class="star" data-rating="5">☆</span>
+            </div>
+        </div>
+        <div class="fusion-experience">
+            <div class="rating-title">Which fusion combinations impressed you the most?</div>
+            <div class="fusion-options">
+                <div class="fusion-option" data-value="asian-latin">Asian-Latin</div>
+                <div class="fusion-option" data-value="mediterranean-indian">Mediterranean-Indian</div>
+                <div class="fusion-option" data-value="african-european">African-European</div>
+                <div class="fusion-option" data-value="middle-eastern-american">Middle Eastern-American</div>
+                <div class="fusion-option" data-value="pacific-caribbean">Pacific-Caribbean</div>
+            </div>
+        </div>
+        <div class="rating-category">
+            <div class="rating-title">Value for Money:</div>
+            <div class="price-value">
+                <input type="range" min="1" max="5" value="3" class="price-slider" id="price-slider">
+                <div class="price-display">$$$</div>
+            </div>
+        </div>
+        <textarea placeholder="Share your experience at New World Kitchen. How was the fusion cuisine? Which dishes stood out? Did the flavors blend well? What was unique about your dining experience?"></textarea>
+        <button class="submit-btn">Submit Review</button>
+        <div class="ai-suggestion" style="display: none;">
+            <strong>AI Suggestion:</strong> Your review mentions fusion cuisine. Consider elaborating on specific dish combinations, unexpected flavor pairings, or how well the fusion concept was executed in terms of taste and presentation.
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const starContainers = document.querySelectorAll('.stars');
+    const submitBtn = document.querySelector('.submit-btn');
+    const textarea = document.querySelector('textarea');
+    const aiSuggestion = document.querySelector('.ai-suggestion');
+    const priceSlider = document.getElementById('price-slider');
+    const priceDisplay = document.querySelector('.price-display');
+    const fusionOptions = document.querySelectorAll('.fusion-option');
+    const ratings = {
+        overall: 0,
+        food: 0,
+        service: 0,
+        ambiance: 0
+    };
+    let selectedFusions = [];
+
+    starContainers.forEach(container => {
+        const stars = container.querySelectorAll('.star');
+        const category = container.id.split('-')[0];
+        
+        stars.forEach(star => {
+            star.addEventListener('click', (e) => {
+                const rating = e.target.dataset.rating;
+                ratings[category] = rating;
+                updateStars(stars, rating);
+            });
+        });
+    });
+
+    function updateStars(stars, rating) {
+        stars.forEach(s => {
+            s.classList.remove('active');
+            if (s.dataset.rating <= rating) {
+                s.classList.add('active');
+                s.textContent = '★';
+            } else {
+                s.textContent = '☆';
+            }
+        });
+    }
+
+    fusionOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+            option.classList.toggle('selected');
+            const value = option.dataset.value;
+            if (selectedFusions.includes(value)) {
+                selectedFusions = selectedFusions.filter(item => item !== value);
+            } else {
+                selectedFusions.push(value);
+            }
+        });
+    });
+
+    priceSlider.addEventListener('input', () => {
+        const values = ['$', '$$', '$$$', '$$$$', '$$$$$'];
+        priceDisplay.textContent = values[priceSlider.value - 1];
+    });
+
+    submitBtn.addEventListener('click', () => {
+        if (Object.values(ratings).some(r => r === 0)) {
+            alert('Please provide ratings for all categories before submitting.');
+            return;
+        }
+        if (textarea.value.trim() === '') {
+            alert('Please write a review before submitting.');
+            return;
+        }
+        if (selectedFusions.length === 0) {
+            alert('Please select at least one fusion combination that impressed you.');
+            return;
+        }
+
+        // alert('Thank you for your detailed review of New World Kitchen! Your feedback has been submitted successfully.');
+        console.log('Review submitted:', { 
+            ratings, 
+            priceTier: priceSlider.value,
+            impressiveFusions: selectedFusions,
+            text: textarea.value 
+        });
+        // Reset form (in a real app, we'd navigate away or clear the form)
+        Object.keys(ratings).forEach(key => ratings[key] = 0);
+        starContainers.forEach(container => {
+            updateStars(container.querySelectorAll('.star'), 0);
+        });
+        priceSlider.value = 3;
+        priceDisplay.textContent = '$$$';
+        textarea.value = '';
+        aiSuggestion.style.display = 'none';
+        fusionOptions.forEach(opt => opt.classList.remove('selected'));
+        selectedFusions = [];
+    });
+
+    textarea.addEventListener('input', () => {
+        if (textarea.value.toLowerCase().includes('fusion') || textarea.value.toLowerCase().includes('combination')) {
+            aiSuggestion.style.display = 'block';
+        } else {
+            aiSuggestion.style.display = 'none';
+        }
+        console.log('Review text:', textarea.value);
+        saveReviewToServer(textarea.value);
+    });
+
+    function saveReviewToServer(reviewText) {
+        fetch('http://0.0.0.0:3000/saveReview', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ reviewText })
+                })
+                .then(response => response.json())
+                .then(data => console.log('Server response:', data))
+                .catch(error => console.error('Error:', error));
+            }
+
+
+});
+</script>
+</body></html>

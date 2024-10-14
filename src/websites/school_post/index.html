@@ -1,0 +1,223 @@
+<html><head><base href="https://great-future-highschool.com/forum/posts/new">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Great Future High School - New Forum Post</title>
+<style>
+  body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://example.com/school-pattern.png');
+    background-color: #f0f8ff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    background-color: #4b0082;
+    color: #ffd700;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .logo {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  .container {
+    display: flex;
+    flex: 1;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  aside {
+    flex: 0 0 300px;
+    margin-right: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border: 3px solid #4b0082;
+    height: fit-content;
+  }
+  main {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    border: 3px solid #4b0082;
+  }
+  h1, h2, h3 {
+    color: #4b0082;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #4b0082;
+  }
+  input[type="text"], textarea, select {
+    width: 100%;
+    padding: 0.7rem;
+    margin-top: 0.5rem;
+    border: 2px solid #4b0082;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+  textarea {
+    height: 200px;
+    resize: vertical;
+  }
+  button {
+    background-color: #ffd700;
+    color: #4b0082;
+    border: none;
+    padding: 0.7rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  button:hover {
+    background-color: #4b0082;
+    color: #ffd700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+  }
+  .category-info {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.25rem;
+  }
+  .mascot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background-image: url('https://example.com/school-mascot.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  .recent-posts {
+    list-style-type: none;
+    padding: 0;
+  }
+  .recent-posts li {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #4b0082;
+  }
+  .recent-posts li:last-child {
+    border-bottom: none;
+  }
+  .post-title {
+    font-weight: bold;
+    color: #4b0082;
+  }
+  .post-meta {
+    font-size: 0.8rem;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <img src="https://example.com/school-logo.png" alt="Great Future High School logo" class="logo">
+    <h1>Great Future High School</h1>
+    <h2>Student Forum</h2>
+  </header>
+  
+  <div class="container">
+    <aside>
+      <h3>📰 Recent Posts</h3>
+      <ul class="recent-posts">
+        <li>
+          <a href="https://great-future-highschool.com/forum/posts/123" class="post-title">🏆 Tigers Win State Championship!</a>
+          <p class="post-meta">By: Coach Smith | Category: Sports | 2 days ago</p>
+        </li>
+        <li>
+          <a href="https://great-future-highschool.com/forum/posts/124" class="post-title">🎭 Drama Club Auditions Next Week</a>
+          <p class="post-meta">By: Ms. Johnson | Category: Clubs | 3 days ago</p>
+        </li>
+        <li>
+          <a href="https://great-future-highschool.com/forum/posts/125" class="post-title">📚 Study Group for Final Exams</a>
+          <p class="post-meta">By: Honor Society | Category: Academics | 4 days ago</p>
+        </li>
+        <li>
+          <a href="https://great-future-highschool.com/forum/posts/126" class="post-title">🎉 Prom Theme Voting Now Open!</a>
+          <p class="post-meta">By: Student Council | Category: Events | 5 days ago</p>
+        </li>
+        <li>
+          <a href="https://great-future-highschool.com/forum/posts/127" class="post-title">🍎 New Healthy Options in Cafeteria</a>
+          <p class="post-meta">By: Nutrition Committee | Category: General | 1 week ago</p>
+        </li>
+      </ul>
+    </aside>
+    
+    <main>
+      <h2>🚀 Create an Awesome New Post! 🚀</h2>
+      <form id="newPostForm">
+        <label for="title">📝 Your Epic Title:</label>
+        <input type="text" id="title" name="title" required placeholder="What's on your mind?">
+        
+        <label for="category">🏷️ Choose Your Category:</label>
+        <select id="category" name="category" required>
+          <option value="">Select a category</option>
+          <option value="general">🗣️ General Chit-Chat</option>
+          <option value="academics">📚 Study Buddies</option>
+          <option value="events">🎉 School Happenings</option>
+          <option value="clubs">🎭 Club Corner</option>
+          <option value="sports">🏀 Sports Zone</option>
+          <option value="advice">🤗 Help a Friend Out</option>
+        </select>
+        <p class="category-info">Pick the perfect spot for your thoughts!</p>
+        
+        <label for="content">✨ Spill the Tea:</label>
+        <textarea id="content" name="content" required placeholder="Share your amazing ideas here!"></textarea>
+        
+        <button type="submit">🎈 Post It!</button>
+      </form>
+    </main>
+  </div>
+
+  <div class="mascot" title="Go Tigers!"></div>
+
+  <script>
+    document.getElementById('newPostForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const title = document.getElementById('title').value;
+      const category = document.getElementById('category').value;
+      const content = document.getElementById('content').value;
+      
+      if (title && category && content) {
+        console.log('New post submitted:', { title, category, content });
+        
+        // Simulate a successful post creation with a fun alert
+        alert('🎉 Woohoo! Your awesome post is now live! 🌟');
+        
+        // Clear the form
+        this.reset();
+      } else {
+        alert('Oops! 😅 Make sure to fill in all the blanks before hitting that Post button!');
+      }
+    });
+  </script>
+</body>
+</html>

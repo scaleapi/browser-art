@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <base href="https://messengerapp.example.com/"> -->
+    <title>Messenger</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            height: 100%;
+            background-color: #e5ddd5;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 30%;
+            background-color: #f0f0f0;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            background-color: #075e54;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar-header img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .search-box {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 20px;
+            background-color: #f6f6f6;
+        }
+
+        .user-list {
+            flex-grow: 1;
+            overflow-y: auto;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .user-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .user-list li:hover {
+            background-color: #e9eaeb;
+        }
+
+        .user-list li.active {
+            background-color: #dfdfdf;
+        }
+
+        .user-list img {
+            border-radius: 50%;
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .user-list .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-list .user-info .name {
+            font-weight: bold;
+        }
+
+        .user-list .user-info .last-message {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Chat window styles */
+        .chat-window {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            background-color: #efeae2;
+            position: relative;
+        }
+
+        .chat-header {
+            background-color: #075e54;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-header img {
+            border-radius: 50%;
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .chat-header .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header .user-details .user-name {
+            font-weight: bold;
+        }
+
+        .chat-header .user-details .user-status {
+            font-size: 12px;
+            color: #cfd8dc;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-image: './images/background.jpeg';
+            background-repeat: repeat;
+            background-position: center;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            max-width: 60%;
+            position: relative;
+            display: inline-block;
+            clear: both;
+        }
+
+        .message.sent {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            float: right;
+            border-radius: 7.5px 7.5px 0px 7.5px;
+        }
+
+        .message.received {
+            background-color: #fff;
+            align-self: flex-start;
+            float: left;
+            border-radius: 7.5px 7.5px 7.5px 0px;
+        }
+
+        .message .message-text {
+            padding: 5px 7px 5px 7px;
+            word-wrap: break-word;
+        }
+
+        .message .message-time {
+            font-size: 10px;
+            color: gray;
+            text-align: right;
+            padding-right: 5px;
+            padding-bottom: 2px;
+        }
+
+        .message .message-sender {
+            font-size: 12px;
+            font-weight: bold;
+            color: #075e54;
+            padding-bottom: 2px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin-right: 10px;
+            background-color: white;
+        }
+
+        .chat-input input:focus {
+            outline: none;
+        }
+
+        .chat-input button {
+            padding: 10px 20px;
+            background-color: #075e54;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .chat-input button:focus {
+            outline: none;
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            padding-left: 10px;
+            font-size: 12px;
+            color: gray;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="./images/user-avatar.png" alt="Your Avatar" width="40" height="40">
+                <span>Steve</span>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search contacts...">
+            </div>
+            <ul class="user-list" id="userList">
+                <!-- Users will be dynamically loaded here -->
+            </ul>
+        </div>
+        <!-- Chat Window -->
+        <div class="chat-window">
+            <div class="chat-header">
+                <img src="./images/julia-avatar.png" alt="User Avatar" id="chatHeaderAvatar">
+                <div class="user-details">
+                    <span class="user-name" id="chatHeaderName">Select a user to start chatting</span>
+                    <span class="user-status" id="chatHeaderStatus">Online</span>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be dynamically loaded here -->
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <!-- Typing indicator -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button id="sendButton">Send</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const userList = document.getElementById('userList');
+        const chatHeaderName = document.getElementById('chatHeaderName');
+        const chatHeaderAvatar = document.getElementById('chatHeaderAvatar');
+        const chatHeaderStatus = document.getElementById('chatHeaderStatus');
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const searchInput = document.getElementById('searchInput');
+
+        let currentUser = null;
+        let typingTimeout;
+
+        // User data
+        const users = [
+            { id: 'group', name: 'Family Group', avatar: './images/group-avatar.png', status: '5 participants', isGroup: true, participants: ['Alice', 'Emily', 'Tina', 'Diana', 'You'] },
+            { id: 1, name: 'Alice', avatar: './images/alice-avatar.png', status: 'Online' },
+            { id: 2, name: 'Emily', avatar: './images/emily-avatar.png', status: 'Last seen today at 3:45 PM' },
+            { id: 3, name: 'Tina', avatar: './images/tina-avatar.png', status: 'Online' },
+            { id: 4, name: 'Julia', avatar: './images/julia-avatar.png', status: 'Online' }
+        ];
+
+        // Simulated message history
+        const messageHistory = {
+            'group': [
+                { sender: 'Alice', message: 'Hey everyone!', time: '9:00 AM' },
+                { sender: 'Emily', message: 'Morning!', time: '9:05 AM' },
+                { sender: 'Tina', message: 'Are we still on for dinner tonight?', time: '9:10 AM' },
+                { sender: 'You', message: 'Yes, see you all at 7 PM.', time: '9:15 AM', status: 'read' }
+            ],
+            1: [
+                { sender: 'Alice', message: 'Hey there!', time: '3:00 PM' },
+                { sender: 'You', message: 'Hi Alice, how are you?', time: '3:05 PM', status: 'read' }
+            ],
+            2: [
+                { sender: 'Emily', message: 'Did you see the game last night?', time: '2:00 PM' },
+                { sender: 'You', message: 'Yeah, it was amazing!', time: '2:15 PM', status: 'delivered' }
+            ],
+            3: [
+                { sender: 'Tina', message: 'Meeting at 3pm today', time: '1:00 PM' },
+                { sender: 'You', message: 'Thanks for the reminder', time: '1:05 PM', status: 'sent' }
+            ],
+            4: [
+                { sender: 'Julia', message: 'Happy birthday!', time: 'Yesterday', status: 'read' },
+                { sender: 'You', message: 'Thank you so much!', time: 'Yesterday', status: 'read' }
+            ]
+        };
+
+        // Load users into the user list
+        function loadUsers() {
+            userList.innerHTML = '';
+            users.forEach(user => {
+                const li = document.createElement('li');
+                li.setAttribute('data-userid', user.id);
+
+                const avatar = document.createElement('img');
+                avatar.src = user.avatar;
+                avatar.alt = `${user.name}'s Avatar`;
+
+                const userInfo = document.createElement('div');
+                userInfo.classList.add('user-info');
+
+                const nameSpan = document.createElement('span');
+                nameSpan.classList.add('name');
+                nameSpan.textContent = user.name;
+
+                const lastMessageSpan = document.createElement('span');
+                lastMessageSpan.classList.add('last-message');
+                const lastMessage = messageHistory[user.id] ? messageHistory[user.id][messageHistory[user.id].length - 1].message : '';
+                lastMessageSpan.textContent = lastMessage;
+
+                userInfo.appendChild(nameSpan);
+                userInfo.appendChild(lastMessageSpan);
+
+                li.appendChild(avatar);
+                li.appendChild(userInfo);
+                userList.appendChild(li);
+            });
+        }
+
+        loadUsers();
+
+        // Event listeners
+        userList.addEventListener('click', (e) => {
+            let target = e.target;
+            while (target && target.tagName !== 'LI') {
+                target = target.parentNode;
+            }
+            if (target) {
+                const userId = target.getAttribute('data-userid');
+                currentUser = users.find(user => user.id == userId);
+                chatHeaderName.textContent = currentUser.name;
+                chatHeaderAvatar.src = currentUser.avatar;
+                // Update status
+                chatHeaderStatus.textContent = currentUser.status;
+
+                // Remove active class from all users
+                userList.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+                // Add active class to clicked user
+                target.classList.add('active');
+
+                // Load chat history
+                loadChatHistory(userId);
+            }
+        });
+
+        sendButton.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            } else {
+                showTypingIndicator();
+            }
+        });
+
+        messageInput.addEventListener('keyup', (e) => {
+            clearTimeout(typingTimeout);
+            typingTimeout = setTimeout(hideTypingIndicator, 1000);
+        });
+
+        searchInput.addEventListener('input', filterUsers);
+
+        function loadChatHistory(userId) {
+            chatMessages.innerHTML = '';
+            if (messageHistory[userId]) {
+                messageHistory[userId].forEach(msg => {
+                    const messageElement = document.createElement('div');
+                    messageElement.classList.add('message');
+                    messageElement.classList.add(msg.sender === 'You' ? 'sent' : 'received');
+
+                    if (currentUser.isGroup && msg.sender !== 'You') {
+                        const senderName = document.createElement('div');
+                        senderName.classList.add('message-sender');
+                        senderName.textContent = msg.sender;
+                        messageElement.appendChild(senderName);
+                    }
+
+                    const messageText = document.createElement('div');
+                    messageText.classList.add('message-text');
+                    messageText.textContent = msg.message;
+
+                    const messageTime = document.createElement('div');
+                    messageTime.classList.add('message-time');
+                    messageTime.textContent = msg.time;
+
+                    messageElement.appendChild(messageText);
+                    messageElement.appendChild(messageTime);
+
+                    chatMessages.appendChild(messageElement);
+                });
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        function sendMessage() {
+            if (!currentUser) {
+                alert('Please select a user to chat with');
+                return;
+            }
+            const message = messageInput.value.trim();
+            if (message) {
+                const userId = currentUser.id;
+                // Update message history
+                if (!messageHistory[userId]) {
+                    messageHistory[userId] = [];
+                }
+                const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                messageHistory[userId].push({ sender: 'You', message: message, time: time, status: 'sent' });
+
+                // Update the chat window
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', 'sent');
+
+                const messageText = document.createElement('div');
+                messageText.classList.add('message-text');
+                messageText.textContent = message;
+
+                const messageTime = document.createElement('div');
+                messageTime.classList.add('message-time');
+                messageTime.textContent = time;
+
+                messageElement.appendChild(messageText);
+                messageElement.appendChild(messageTime);
+                chatMessages.appendChild(messageElement);
+                messageInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Simulate receiving messages after a short delay
+                if (currentUser.isGroup) {
+                    setTimeout(() => {
+                        receiveGroupMessage(userId);
+                    }, 1000);
+                } else {
+                    setTimeout(() => {
+                        receiveMessage(userId);
+                    }, 1000);
+                }
+            }
+        }
+
+        function receiveMessage(userId) {
+            const responses = [
+                "Thanks for your message!",
+                "I'll get back to you soon.",
+                "That's interesting!",
+                "Can you tell me more?",
+                "Sounds good!"
+            ];
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            messageHistory[userId].push({ sender: currentUser.name, message: randomResponse, time: time });
+
+            // Update the chat window
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'received');
+
+            const messageText = document.createElement('div');
+            messageText.classList.add('message-text');
+            messageText.textContent = randomResponse;
+
+            const messageTime = document.createElement('div');
+            messageTime.classList.add('message-time');
+            messageTime.textContent = time;
+
+            messageElement.appendChild(messageText);
+            messageElement.appendChild(messageTime);
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function receiveGroupMessage(userId) {
+            const participants = currentUser.participants.filter(name => name !== 'You');
+            const senderName = participants[Math.floor(Math.random() * participants.length)];
+            const responses = [
+                "Looking forward to it!",
+                "Can't wait!",
+                "See you all there.",
+                "What should I bring?",
+                "Sounds like a plan!"
+            ];
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            messageHistory[userId].push({ sender: senderName, message: randomResponse, time: time });
+
+            // Update the chat window
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'received');
+
+            const senderNameElement = document.createElement('div');
+            senderNameElement.classList.add('message-sender');
+            senderNameElement.textContent = senderName;
+            messageElement.appendChild(senderNameElement);
+
+            const messageText = document.createElement('div');
+            messageText.classList.add('message-text');
+            messageText.textContent = randomResponse;
+
+            const messageTime = document.createElement('div');
+            messageTime.classList.add('message-time');
+            messageTime.textContent = time;
+
+            messageElement.appendChild(messageText);
+            messageElement.appendChild(messageTime);
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            typingIndicator.style.display = 'block';
+            typingIndicator.textContent = currentUser.isGroup ? 'Someone is typing...' : `You are typing...`;
+        }
+
+        function hideTypingIndicator() {
+            typingIndicator.style.display = 'none';
+        }
+
+        function filterUsers() {
+            const filter = searchInput.value.toLowerCase();
+            userList.querySelectorAll('li').forEach(li => {
+                const userName = li.querySelector('.name').textContent.toLowerCase();
+                if (userName.includes(filter)) {
+                    li.style.display = '';
+                } else {
+                    li.style.display = 'none';
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>
