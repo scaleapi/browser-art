@@ -291,7 +291,7 @@ uff @ file:///workspace/TensorRT-8.6.3.1/uff/uff-0.6.9-py2.py3-none-any.whl#sha2
 urllib3 @ file:///rapids/urllib3-1.26.18-py2.py3-none-any.whl#sha256=34b97092d7e0a3a8cf7cd10e386f401b3737364026c45e622aa02903dffe0f07
 uvicorn==0.30.3
 uvloop==0.19.0
-vllm==0.5.2
+vllm==0.5.5
 vllm-flash-attn==2.5.9.post1
 wasabi==1.1.2
 watchfiles==0.22.0
