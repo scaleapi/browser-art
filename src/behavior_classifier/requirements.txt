@@ -276,7 +276,7 @@ torch-tensorrt @ file:///opt/pytorch/torch_tensorrt/dist/torch_tensorrt-2.3.0a0-
 torchdata @ file:///opt/pytorch/data
 torchtext @ file:///opt/pytorch/text
 torchvision==0.18.1
-tornado==6.4
+tornado==6.4.1
 tqdm==4.66.4
 traitlets==5.9.0
 transformer-engine @ git+https://github.com/NVIDIA/TransformerEngine.git@0fbc76af3733ae997394eaf82b78ff9c0498fe91
