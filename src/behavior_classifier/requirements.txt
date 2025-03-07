@@ -299,7 +299,7 @@ wcwidth==0.2.13
 weasel==0.3.4
 webencodings==0.5.1
 websockets==12.0
-Werkzeug==3.0.1
+Werkzeug==3.0.6
 xdoctest==1.0.2
 xformers==0.0.27
 xgboost @ file:///rapids/xgboost-2.0.3-py3-none-linux_x86_64.whl#sha256=b7b5d04953eafd58412b1efd8e42ced986f05021a9cd95a97a36c96a3fb0cbd9
