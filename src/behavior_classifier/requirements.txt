@@ -214,7 +214,7 @@ pytest-xdist==3.5.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 python-hostlist==1.23.0
-python-multipart==0.0.9
+python-multipart==0.0.18
 pytorch-quantization==2.1.2
 pytorch-triton @ file:///tmp/dist/pytorch_triton-2.2.0%2Be28a256d7-cp310-cp310-linux_x86_64.whl#sha256=6af05ee3a40681a8e1cd45f69eb3653eca7c0d03c07d406065f7ae8e1c38f7d6
 pytz @ file:///rapids/pytz-2024.1-py2.py3-none-any.whl#sha256=328171f4e3623139da4983451950b28e95ac706e13f3f2630a879749e7a8b319
